@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<server description="new server">
+
+    <!-- Enable features -->
+    <featureManager>
+        <feature>cdi-1.2</feature>
+        <feature>jaxrs-2.0</feature>
+        <feature>jpa-2.1</feature>
+        <feature>json-1.0</feature>
+        <feature>jndi-1.0</feature>
+        <feature>ejbLite-3.2</feature>
+    </featureManager>
+
+    <!-- To access this server from a remote client add a host attribute to the following element, e.g. host="*" -->
+    <httpEndpoint id="defaultHttpEndpoint"
+                  httpPort="9080"
+                  httpsPort="9443"/>
+
+    <!-- Automatically expand WAR files and EAR files -->
+    <applicationManager autoExpand="true"/>
+
+    <!-- Default SSL configuration enables trust for default certificates from the Java runtime -->
+    <ssl id="defaultSSLConfig" trustDefaultCerts="true"/>
+
+    <dataSource id="DefaultDataSource" jndiName="jdbc/mySQL">
+        <jdbcDriver libraryRef="MySQLLib"/>
+        <properties databaseName="cursistdb?serverTimezone=UTC" serverName="localhost" portNumber="3306"
+                    user="root" password="default"/>
+    </dataSource>
+
+
+    <!-- Voer bij <file> je eigen pad in -->
+    <library id="MySQLLib">
+        <file name="/C:/Users/evano/.m2/repository/mysql/mysql-connector-java/8.0.22/mysql-connector-java-8.0.22.jar"/>
+    </library>
+</server>
