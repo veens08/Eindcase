@@ -1,6 +1,0 @@
-In main/liberty/config/server.xml moet de developer onderaan het bestand de <file> tag aanpassen.
-Voer voor het pad je eigen pad in.
-
-Joshua:
-Sjoerd:
-Evan: /C:/Users/evano/.m2/repository/mysql/mysql-connector-java/8.0.22/mysql-connector-java-8.0.22.jar

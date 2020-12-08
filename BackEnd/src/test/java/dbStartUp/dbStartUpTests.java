@@ -9,7 +9,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import java.util.ArrayList;
 
-public class dbStartUpTest {
+public class dbStartUpTests {
     @Test
     void maakTabellenInDatabase() {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("hoestschaamteCoronaApp");
