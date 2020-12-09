@@ -3,3 +3,20 @@ h1 {
   font-family: 'Open Sans', sans-serif;
   font-weight: 400;
 }
+
+.hoofdMenuContainer {
+  border: 2px solid black;
+  display: flex;
+  margin: 0 auto;
+}
+
+.keuzeHoofdMenu {
+  border: 2px solid black;
+}
+.keuzeHoofdMenu:hover {
+  background-color: gray;
+}
+
+#middleButton {
+  margin: 0 auto;
+}
