@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { ReserveringComponent } from './component/reservering/reservering.component';
 import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
 import {HttpClientModule} from '@angular/common/http';
+import { StartComponent } from './component/start/start.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ReserveringComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    StartComponent
   ],
   imports: [
     BrowserModule,
