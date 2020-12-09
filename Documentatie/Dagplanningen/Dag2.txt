@@ -1,0 +1,5 @@
+Taken/activiteiten die we voor vandaag hebben staan:
+
+- voorbereiding CRC spel
+- testdata van reserveringen in database opslaan
+- ophalen van een reservering op naam of reserveringscode (frontend en backend)
