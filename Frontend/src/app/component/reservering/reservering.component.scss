@@ -1,0 +1,41 @@
+#buttonContainerNewReserv {
+  float: right;
+}
+
+#formTitle {
+  width: 370px;
+  margin: 0 auto;
+}
+
+.formContainer {
+  border: 2px solid black;
+  border-radius: 25px;
+  height: 280px;
+  width: 450px;
+  margin: 0 auto;
+}
+#formContent {
+  margin: 0 auto;
+}
+.formContentsContainer {
+  display: flex;
+  margin: 0 auto;
+}
+
+.formConCanButton {
+float: right;
+  margin: 2% 4% 0 0;
+}
+
+.fieldset {
+  float: right;
+}
+
+input {
+  float: right;
+  min-width: 250px;
+}
+
+form {
+  border: none;
+}

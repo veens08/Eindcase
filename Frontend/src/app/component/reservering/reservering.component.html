@@ -1,18 +1,56 @@
-<table>
-  <thead>
-  <tr>
-    <th>ID:</th>
-    <th>Datum:</th>
-    <th>Code:</th>
-    <th>Aantal personen:</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let r of reserveringen">
-    <td>{{r.id}}</td>
-    <td>{{r.reserveringsDatum}}</td>
-    <td>{{r.code}}</td>
-    <td>{{r.aantalPersonen}}</td>
-  </tr>
-  </tbody>
-</table>
+<!--<table>-->
+<!--  <thead>-->
+<!--  <tr>-->
+<!--    <th>ID:</th>-->
+<!--    <th>Datum:</th>-->
+<!--    <th>Code:</th>-->
+<!--    <th>Aantal personen:</th>-->
+<!--  </tr>-->
+<!--  </thead>-->
+<!--  <tbody>-->
+<!--  <tr *ngFor="let r of reserveringen">-->
+<!--    <td>{{r.id}}</td>-->
+<!--    <td>{{r.reserveringsDatum}}</td>-->
+<!--    <td>{{r.code}}</td>-->
+<!--    <td>{{r.aantalPersonen}}</td>-->
+<!--  </tr>-->
+<!--  </tbody>-->
+<!--</table>-->
+
+<div id="buttonContainerNewReserv">
+  <button>&#43; Nieuwe Reservering</button>
+</div>
+
+<div class = "formContainer">
+  <h1 id="formTitle">Nieuwe reservering maken</h1>
+  <div id="formContent">
+    <form>
+      <fieldset>
+        <p>
+          <label for="naamInput">Naam:</label>
+          <input id="naamInput" type="text">
+        </p>
+        <p>
+          <label for="datumInput">Datum:</label>
+          <input id="datumInput" type="date">
+        </p>
+        <p>
+          <label for="gastenInput">Aantal gasten:</label>
+          <input id="gastenInput" type="number">
+        </p>
+        <p>
+          <label for="tijdInput">Tijdslot:</label>
+          <input id="tijdInput" type="number">
+        </p>
+        <p>
+          <label for="telInput">Telefoonnummer:</label>
+          <input id="telInput" type="text">
+        </p>
+      </fieldset>
+    </form>
+  </div>
+  <button class="formConCanButton">Doorgaan</button>
+  <button class="formConCanButton">Annuleren</button>
+
+
+</div>
