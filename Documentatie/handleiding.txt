@@ -1,0 +1,18 @@
+Voer de volgende opdrachten uit om beide systemen 'up-and-running' te krijgen.
+
+
+=============== Frontend ===============
+
+1. Open de frontend folder in een aparte intelliJ scherm
+2. Open je terminal / cmd scherm en zorg ervoor dat je een root van de frontend folder zit.
+3. Voer het volgende commando uit: ng serve
+
+=============== Backend ===============
+
+
+1. Open de backend folder in een aparte IntelliJ scherm
+2. Open server.xml
+3. Verander in de <datasource> tag de user en password properties naar je eigen database credentials
+4. Verander in de <library> tag het pad naar je mysql connector folder
+5. Open je terminal / cmd scherm en zorg ervoor dat je een root van de backend folder zit.
+6. Voer het volgende commando uit: mvn liberty:dev
