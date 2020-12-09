@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class VulDatabaseTabellen {
 
     public void maakTafelsVoorTestAan() {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory ("hoestschaamteCoronaApp");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory ("test-corona-app-pu");
         EntityManager em = emf.createEntityManager ();
         EntityTransaction tx = em.getTransaction ();
         tx.begin ();
@@ -28,7 +28,7 @@ public class VulDatabaseTabellen {
     }
 
     public void vulPersonenVoorTest () {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory ("hoestschaamteCoronaApp");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory ("test-corona-app-pu");
         EntityManager em = emf.createEntityManager ();
         EntityTransaction tx = em.getTransaction ();
 
@@ -45,7 +45,7 @@ public class VulDatabaseTabellen {
     }
 
     public void maakReserveringenVoorTestAan() {
-         EntityManagerFactory emf = Persistence.createEntityManagerFactory ("hoestschaamteCoronaApp");
+         EntityManagerFactory emf = Persistence.createEntityManagerFactory ("test-corona-app-pu");
          EntityManager em = emf.createEntityManager ();
          EntityTransaction tx = em.getTransaction ();
 
