@@ -7,13 +7,12 @@ import {Observable} from 'rxjs';
   providedIn: 'root'
 })
 export class ReserveringService {
-  readonly API_URL = 'http://localhost:9080/HoestschaamteBackEnd-1.0-SNAPSHOT/';
+  readonly API_URL = 'http://localhost:9080/HoestschaamteBackEnd-1.0-SNAPSHOT/resources';
 
   constructor(private httpClient: HttpClient) { }
 
   getReserveringen(): Observable<Reservering[]> {
-    // json-server --watch db/reserveringen.json
-    const url = 'http://localhost:3000/reserveringen'; // todo: gebruik (this.url + 'resourcelink') als backendresource klaar is
+    const url = this.API_URL + '/reserveringen/';
     return this.httpClient.get<Reservering[]>(url);
   }
 }
