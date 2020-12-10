@@ -22,9 +22,8 @@ public class DefaultDaoServiceImpl<T> implements DefaultDaoService<T> {
     }
 
     @Override
-    public T save(T object) {
+    public void save(T object) {
         em.persist(object);
-        return object;
     }
 
     @Override

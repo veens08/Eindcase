@@ -8,7 +8,7 @@ public interface DefaultDaoService<T> {
      * Deze methode persisteert het object in de database
      * @param object
      */
-    T save(T object);
+    void save(T object);
 
     /**
      * Deze methode haalt alle objecten op van de database
