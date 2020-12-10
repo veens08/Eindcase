@@ -5,6 +5,30 @@
       "reserveringsDatum": "2020-12-12",
       "code": "RES-1234",
       "aantalPersonen": 4
+    },
+    {
+      "id": 1,
+      "reserveringsDatum": "2020-12-12",
+      "code": "RES-3456",
+      "aantalPersonen": 4
+    },
+    {
+      "id": 1,
+      "reserveringsDatum": "2020-12-12",
+      "code": "RES-8643",
+      "aantalPersonen": 4
+    },
+    {
+      "id": 1,
+      "reserveringsDatum": "2020-12-12",
+      "code": "RES-3456",
+      "aantalPersonen": 4
+    },
+    {
+      "id": 1,
+      "reserveringsDatum": "2020-12-12",
+      "code": "RES-0896",
+      "aantalPersonen": 4
     }
   ]
 }

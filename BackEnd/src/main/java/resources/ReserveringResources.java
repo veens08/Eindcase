@@ -17,12 +17,14 @@ public class ReserveringResources {
     private ReserveringDaoService rds;
 
     @GET
+    @Path("/")
     @Produces(MediaType.APPLICATION_JSON)
     public List<Reservering> getReseveringen () {
         return rds.getReserveringen ();
     }
 
     @POST
+    @Path("/add")
     @Consumes(MediaType.APPLICATION_JSON)
     public void addReservering(Reservering reservering) {
         rds.saveReservering (reservering);
