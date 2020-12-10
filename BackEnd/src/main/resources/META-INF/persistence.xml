@@ -7,6 +7,12 @@
     <persistence-unit name="hoestschaamteCoronaApp">
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
         <jta-data-source>jdbc/mySQL</jta-data-source>
+        <!-- DOMAINS -->
+        <class>org.hoestschaamte.corona.domain.Reservering</class>
+        <class>org.hoestschaamte.corona.domain.Persoon</class>
+        <class>org.hoestschaamte.corona.domain.Tafel</class>
+        <!-- CONVERTERS -->
+        <class>org.hoestschaamte.corona.config.LocalDateAttributeConverter</class>
         <properties>
             <property name="eclipselink.ddl-generation" value="none"/>
             <property name="eclipselink.ddl-generation.output-mode" value="database"/>

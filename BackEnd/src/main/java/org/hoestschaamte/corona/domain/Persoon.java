@@ -1,4 +1,4 @@
-package domain;
+package org.hoestschaamte.corona.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,6 +8,7 @@ import javax.ws.rs.GET;
 
 @Entity
 public class Persoon {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
