@@ -1,6 +1,6 @@
-package services.impl;
+package org.hoestschaamte.corona.services.impl;
 
-import services.DefaultDaoService;
+import org.hoestschaamte.corona.services.DefaultDaoService;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

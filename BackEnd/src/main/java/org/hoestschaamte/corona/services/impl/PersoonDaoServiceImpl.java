@@ -1,7 +1,7 @@
-package services.impl;
+package org.hoestschaamte.corona.services.impl;
 
-import domain.Persoon;
-import services.PersoonDaoService;
+import org.hoestschaamte.corona.domain.Persoon;
+import org.hoestschaamte.corona.services.PersoonDaoService;
 
 import javax.transaction.Transactional;
 

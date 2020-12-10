@@ -1,4 +1,4 @@
-package services;
+package org.hoestschaamte.corona.services;
 
 import java.util.List;
 

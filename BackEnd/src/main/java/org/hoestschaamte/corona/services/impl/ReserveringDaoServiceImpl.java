@@ -1,8 +1,7 @@
-package services.impl;
+package org.hoestschaamte.corona.services.impl;
 
-import domain.Reservering;
-import services.ReserveringDaoService;
-import services.impl.DefaultDaoServiceImpl;
+import org.hoestschaamte.corona.domain.Reservering;
+import org.hoestschaamte.corona.services.ReserveringDaoService;
 
 import javax.transaction.Transactional;
 import java.util.Optional;

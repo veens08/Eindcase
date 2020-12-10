@@ -1,4 +1,4 @@
-package domain;
+package org.hoestschaamte.corona.domain;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -11,25 +11,22 @@ public class Reservering {
     private int id;
     private LocalDate reserveringsDatum;
     private int tijdSlot;
-    private String naam;
+    private String code;
     private int aantalPersonen;
+    private static int teller;
 //    @OneToOne
 //    private Tafel tafel;
-//    @OneToOne
-//    private Persoon persoon;
 
-    public Reservering(LocalDate reserveringsDatum, int tijdSlot, String naam, int aantalPersonen){
-         setReserveringsDatum (reserveringsDatum);
-         setTijdSlot (tijdSlot);
-         setNaam(naam);
-         setAantalPersonen (aantalPersonen);
+    @ManyToOne(optional = false)
+    private Persoon contacpersoon;
+
+    public Reservering(Persoon contacpersoon){
+        teller++;
+        setContacpersoon(contacpersoon);
+        this.code = createReserveringsCode();
     }
 
     public Reservering() {
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public int getId() {
@@ -52,14 +49,6 @@ public class Reservering {
         this.tijdSlot = tijdSlot;
     }
 
-    public void setNaam(String naam) {
-        this.naam = naam;
-    }
-
-    public String getNaam() {
-        return naam;
-    }
-
     public int getAantalPersonen() {
         return aantalPersonen;
     }
@@ -68,13 +57,32 @@ public class Reservering {
         this.aantalPersonen = aantalPersonen;
     }
 
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public Persoon getContacpersoon() {
+        return contacpersoon;
+    }
+
+    public void setContacpersoon(Persoon contacpersoon) {
+        this.contacpersoon = contacpersoon;
+    }
+
+    private String createReserveringsCode() {
+        return "CORONA-" + teller;
+    }
+
     @Override
     public String toString() {
         return "Reservering{" +
                 "id=" + id +
                 ", reserveringsDatum=" + reserveringsDatum +
                 ", tijdSlot=" + tijdSlot +
-                ", naam='" + naam + '\'' +
                 ", aantalPersonen=" + aantalPersonen +
                 '}';
     }

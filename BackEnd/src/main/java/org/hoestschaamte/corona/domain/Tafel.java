@@ -1,4 +1,4 @@
-package domain;
+package org.hoestschaamte.corona.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

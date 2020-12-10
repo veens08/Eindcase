@@ -1,4 +1,4 @@
-package config;
+package org.hoestschaamte.corona.config;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
@@ -19,7 +19,8 @@ public class CorsFilter implements Filter {
         httpResponse.addHeader("Access-Control-Allow-Origin", "http://localhost:4200");
         httpResponse.addHeader("Access-Control-Allow-Headers", "*");
         httpResponse.addHeader("Access-Control-Allow-Methods", "GET, POST");
-        filterChain.doFilter(servletRequest, httpResponse);    }
+        filterChain.doFilter(servletRequest, httpResponse);
+    }
 
     @Override
     public void destroy() {

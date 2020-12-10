@@ -1,7 +1,7 @@
-package services.impl;
+package org.hoestschaamte.corona.services.impl;
 
-import domain.Tafel;
-import services.TafelDaoService;
+import org.hoestschaamte.corona.domain.Tafel;
+import org.hoestschaamte.corona.services.TafelDaoService;
 
 import javax.transaction.Transactional;
 

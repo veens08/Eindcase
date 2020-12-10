@@ -1,6 +1,6 @@
-package services;
+package org.hoestschaamte.corona.services;
 
-import domain.Reservering;
+import org.hoestschaamte.corona.domain.Reservering;
 
 public interface ReserveringDaoService extends DefaultDaoService<Reservering> {
 
