@@ -22,4 +22,8 @@ describe('BezoekersComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should return true when checked if reservering is truthy', () => {
+    expect(component.getReserveringen()).toBeTruthy();
+  });
 });
