@@ -1,14 +1,14 @@
 package tests;
 
-import dbStartUp.VulDatabaseTabellen;
 import org.junit.jupiter.api.Test;
+import startUp.VulDatabase;
 
 public class dbStartUpTests {
 
     @Test
 //    @Ignore
     void vulDeInitieleDatabase() {
-        VulDatabaseTabellen vulDatabaseTabellen = new VulDatabaseTabellen ();
-        vulDatabaseTabellen.maakReserveringenVoorTestAan ();
+        VulDatabase vulDatabase = new VulDatabase();
+        vulDatabase.maakReserveringenVoorTestAan ();
     }
 }

@@ -16,3 +16,5 @@ Voer de volgende opdrachten uit om beide systemen 'up-and-running' te krijgen.
 4. Verander in de <library> tag het pad naar je mysql connector folder
 5. Open je terminal / cmd scherm en zorg ervoor dat je een root van de backend folder zit.
 6. Voer het volgende commando uit: mvn liberty:dev
+7. MySQL versie 8.0.22 vereist in de server.xml (zie voorbeeld:
+        <file name="/Volumes/Samsung SSD/Users/JDH/.m2/repository/mysql/mysql-connector-java/8.0.22/mysql-connector-java-8.0.22.jar"/>
