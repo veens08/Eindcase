@@ -1,6 +1,11 @@
 package org.hoestschaamte.corona.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.hoestschaamte.corona.config.LocalDateAdapter;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.time.LocalDate;
 
 @Entity
@@ -9,6 +14,9 @@ public class Reservering {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @XmlJavaTypeAdapter(LocalDateAdapter.class)
+    @JsonFormat(pattern = "dd-mm-yyyy", shape = JsonFormat.Shape.STRING)
     private LocalDate reserveringsDatum;
     private int tijdSlot;
     private String code;
@@ -17,12 +25,13 @@ public class Reservering {
 //    @OneToOne
 //    private Tafel tafel;
 
-    @ManyToOne(optional = false)
-    private Persoon contacpersoon;
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @NotNull(message = "U moet een contactpersoon opgeven")
+    private Persoon contactpersoon;
 
     public Reservering(Persoon contacpersoon){
         teller++;
-        setContacpersoon(contacpersoon);
+        setContactpersoon(contacpersoon);
         this.code = createReserveringsCode();
     }
 
@@ -65,12 +74,12 @@ public class Reservering {
         this.code = code;
     }
 
-    public Persoon getContacpersoon() {
-        return contacpersoon;
+    public Persoon getContactpersoon() {
+        return contactpersoon;
     }
 
-    public void setContacpersoon(Persoon contacpersoon) {
-        this.contacpersoon = contacpersoon;
+    public void setContactpersoon(Persoon contactpersoon) {
+        this.contactpersoon = contactpersoon;
     }
 
     private String createReserveringsCode() {

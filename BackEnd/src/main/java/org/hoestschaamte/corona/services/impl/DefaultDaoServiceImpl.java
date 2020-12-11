@@ -33,6 +33,11 @@ public class DefaultDaoServiceImpl<T> implements DefaultDaoService<T> {
         return typedQuery.getResultList();
     }
 
+    @Override
+    public T getById(int id) {
+        return em.find(typeParameterClass, id);
+    }
+
     /**
      * This method queries a list from the database
      * @param stringQuery

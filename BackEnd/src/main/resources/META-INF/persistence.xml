@@ -11,12 +11,11 @@
         <class>org.hoestschaamte.corona.domain.Reservering</class>
         <class>org.hoestschaamte.corona.domain.Persoon</class>
         <class>org.hoestschaamte.corona.domain.Tafel</class>
-        <!-- CONVERTERS -->
-        <class>org.hoestschaamte.corona.config.LocalDateAttributeConverter</class>
         <properties>
             <property name="eclipselink.ddl-generation" value="none"/>
             <property name="eclipselink.ddl-generation.output-mode" value="database"/>
             <property name="eclipselink.logging.level" value="SEVERE"/>
+            <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
         </properties>
     </persistence-unit>
 </persistence>

@@ -4,22 +4,10 @@
              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
              version="2.1">
 
-    <persistence-unit name="corona-app">
-        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-        <jta-data-source>jdbc/mySQL</jta-data-source>
-        <properties>
-            <property name="eclipselink.ddl-generation" value="none"/>
-            <property name="eclipselink.ddl-generation.output-mode" value="database"/>
-            <property name="eclipselink.logging.level" value="SEVERE"/>
-        </properties>
-    </persistence-unit>
-
     <persistence-unit name="test-corona-app-pu" transaction-type="RESOURCE_LOCAL">
         <class>org.hoestschaamte.corona.domain.Reservering</class>
         <class>org.hoestschaamte.corona.domain.Persoon</class>
         <class>org.hoestschaamte.corona.domain.Tafel</class>
-        <!-- CONVERTERS -->
-        <class>org.hoestschaamte.corona.config.LocalDateAttributeConverter</class>
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
             <property name="javax.persistence.jdbc.url"
