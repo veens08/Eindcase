@@ -5,6 +5,7 @@ import org.hoestschaamte.corona.services.ReserveringDaoService;
 
 import javax.inject.Inject;
 import javax.transaction.Transactional;
+import javax.validation.Valid;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -27,29 +28,28 @@ public class ReserveringResource {
     @POST
     @Path("/add")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response addReservering(Reservering reservering) {
-        if (reservering.getContacpersoon() != null) {
+    public Response addReservering(@Valid Reservering reservering) {
             rds.save(reservering);
             System.out.println(reservering);
             return Response.
                     status(Response.Status.CREATED)
                     .entity(reservering)
                     .build();
-        } else {
-            final String message = "Contactpersoon mag niet ontbreken";
-            return Response
-                    .status(Response.Status.BAD_REQUEST)
-                    .entity(message)
-                    .build();
-        }
 
     }
+//
+//    @GET
+//    @Path("/{reserveringsCode}")
+//    @Produces(MediaType.APPLICATION_JSON)
+//    public Reservering getReserveringByCode(@PathParam("reserveringsCode") String reserveringsCode) {
+//        return rds.getByReserveringsCode(reserveringsCode);
+//    }
 
     @GET
-    @Path("/{reserveringsCode}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Reservering getReserveringByCode(@PathParam("reserveringsCode") String reserveringsCode) {
-        return rds.getByReserveringsCode(reserveringsCode);
+    @Path("/{id}")
+    @Produces
+    public Reservering getById(@PathParam("id") int id) {
+        return rds.getById(id);
     }
 }
 
