@@ -1,19 +1,19 @@
-import { ReserveringComponent } from './reservering.component';
+import { ReserveringListComponent } from './reservering-list.component';
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 describe('ReserveringComponent', () => {
-  let component: ReserveringComponent;
-  let fixture: ComponentFixture<ReserveringComponent>;
+  let component: ReserveringListComponent;
+  let fixture: ComponentFixture<ReserveringListComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ReserveringComponent ]
+      declarations: [ ReserveringListComponent ]
     })
       .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ReserveringComponent);
+    fixture = TestBed.createComponent(ReserveringListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

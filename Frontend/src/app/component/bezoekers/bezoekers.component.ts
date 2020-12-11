@@ -15,7 +15,7 @@ export class BezoekersComponent implements OnInit {
   constructor(private reserveringService: ReserveringService) { }
 
   ngOnInit(): void {
-    this.reserveringService.getReserveringen().subscribe((r) => {
+    this.reserveringService.getAll().subscribe((r) => {
       console.log(r);
       this.reserveringen = r;
     });
