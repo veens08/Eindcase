@@ -11,6 +11,7 @@ import {BezoekersComponent} from './component/bezoekers/bezoekers.component';
 import { BesmettingReportComponent } from './component/besmetting-report/besmetting-report.component';
 import { ReserveringDetailComponent } from './component/reservering/reservering-detail/reservering-detail.component';
 import { ReserveringCreateComponent } from './component/reservering/reservering-create/reservering-create.component';
+import { FilterPipe } from './pipe/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ReserveringCreateComponent } from './component/reservering/reservering-
     BezoekersComponent,
     BesmettingReportComponent,
     ReserveringDetailComponent,
-    ReserveringCreateComponent
+    ReserveringCreateComponent,
+    FilterPipe
   ],
     imports: [
         BrowserModule,

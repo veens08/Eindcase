@@ -32,13 +32,15 @@
   position: relative;
 }
 
-#router-wrapper {
-  width: 60%;
+#router-wrapper { // TODO: maak tabel scrollable ipv de wrapper
+  width: 90%;
+  max-height: 80%;
   height: 80%;
+  overflow: scroll;
   background: white;
   border-radius: 15px;
   margin: auto;
-  padding: 20px;
+  padding: 20px 40px;
 }
 
 nav {
@@ -51,6 +53,12 @@ nav {
   }
 
   ul a {
-    font-size: 2rem !important;
+    font-size: 1.5rem !important;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  #router-wrapper {
+    width: 70%;
   }
 }

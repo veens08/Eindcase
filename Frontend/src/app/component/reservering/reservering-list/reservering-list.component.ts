@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Reservering} from '../../../model/Reservering';
 import {ReserveringService} from '../../../service/reservering.service';
 
@@ -9,12 +9,13 @@ import {ReserveringService} from '../../../service/reservering.service';
 })
 export class ReserveringListComponent implements OnInit {
   reserveringen: Reservering[];
+  filteredReserveringen: Reservering[] = [];
+  searchCriterium = '';
 
   constructor(private reserveringService: ReserveringService) { }
 
   ngOnInit(): void {
     this.reserveringService.getAll().subscribe((r) => {
-      console.log(r);
       this.reserveringen = r;
     });
   }

@@ -7,7 +7,7 @@ import {Observable} from 'rxjs';
   providedIn: 'root'
 })
 export class ReserveringService {
-  readonly API_URL = 'http://localhost:9081/HoestschaamteBackEnd-1.0-SNAPSHOT/resources/reserveringen';
+  private readonly API_URL = 'http://localhost:9081/HoestschaamteBackEnd-1.0-SNAPSHOT/resources/reserveringen';
 
   constructor(private httpClient: HttpClient) { }
   getAll(): Observable<Reservering[]> {
@@ -24,5 +24,10 @@ export class ReserveringService {
     const contentTypeHeader = new HttpHeaders({contentType: 'application/json'});
     const observableResponse = this.httpClient.post(this.API_URL + '/add', reservering, {headers: contentTypeHeader});
     return observableResponse;
+  }
+
+  getByReserveringCode(code: string): Observable<Reservering[]> {
+    const url = this.API_URL + '/query?code=' + code;
+    return this.httpClient.get<Reservering[]>(url);
   }
 }

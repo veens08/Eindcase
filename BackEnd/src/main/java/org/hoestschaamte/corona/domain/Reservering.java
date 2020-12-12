@@ -30,12 +30,13 @@ public class Reservering {
     private Persoon contactpersoon;
 
     public Reservering(Persoon contacpersoon){
-        teller++;
+        super();
         setContactpersoon(contacpersoon);
-        this.code = createReserveringsCode();
     }
 
     public Reservering() {
+        teller++;
+        this.code = createReserveringsCode();
     }
 
     public int getId() {
