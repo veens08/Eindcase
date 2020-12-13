@@ -32,7 +32,7 @@
     <!-- Voer bij <file> je eigen pad in -->
     <library id="MySQLLib">
 <!--        <file name="/Volumes/Samsung SSD/Users/JDH/.m2/repository/mysql/mysql-connector-java/8.0.21/mysql-connector-java-8.0.21.jar"/>-->
-<!--        <file name="/C:/Users/veens08/.m2/repository/mysql/mysql-connector-java/8.0.21/mysql-connector-java-8.0.21.jar"/>-->
-        <file name="/C:/Users/evano/.m2/repository/mysql/mysql-connector-java/8.0.22/mysql-connector-java-8.0.22.jar"/>
+        <file name="/C:/Users/veens08/.m2/repository/mysql/mysql-connector-java/8.0.22/mysql-connector-java-8.0.22.jar"/>
+<!--        <file name="/C:/Users/evano/.m2/repository/mysql/mysql-connector-java/8.0.22/mysql-connector-java-8.0.22.jar"/>-->
     </library>
 </server>
