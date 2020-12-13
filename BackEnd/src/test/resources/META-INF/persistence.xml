@@ -5,6 +5,7 @@
              version="2.1">
 
     <persistence-unit name="test-corona-app-pu" transaction-type="RESOURCE_LOCAL">
+        <class>org.hoestschaamte.corona.domain.Bezoek</class>
         <class>org.hoestschaamte.corona.domain.Reservering</class>
         <class>org.hoestschaamte.corona.domain.Persoon</class>
         <class>org.hoestschaamte.corona.domain.Tafel</class>

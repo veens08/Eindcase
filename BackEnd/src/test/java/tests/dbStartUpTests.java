@@ -10,5 +10,6 @@ public class dbStartUpTests {
     void vulDeInitieleDatabase() {
         VulDatabase vulDatabase = new VulDatabase();
         vulDatabase.maakReserveringenVoorTestAan ();
+        vulDatabase.maakBezoekAanVoorTest ();
     }
 }
