@@ -25,14 +25,13 @@
     <dataSource id="DefaultDataSource" jndiName="jdbc/mySQL">
         <jdbcDriver libraryRef="MySQLLib"/>
         <properties databaseName="coronadb?serverTimezone=UTC" serverName="localhost" portNumber="3306"
-                    user="root" password="default"/>
+                    user="root" password="default1"/>
     </dataSource>
-
 
     <!-- Voer bij <file> je eigen pad in -->
     <library id="MySQLLib">
-<!--        <file name="/Volumes/Samsung SSD/Users/JDH/.m2/repository/mysql/mysql-connector-java/8.0.21/mysql-connector-java-8.0.21.jar"/>-->
-        <file name="/C:/Users/veens08/.m2/repository/mysql/mysql-connector-java/8.0.22/mysql-connector-java-8.0.22.jar"/>
+        <file name="/Volumes/Samsung SSD/Users/JDH/.m2/repository/mysql/mysql-connector-java/8.0.22/mysql-connector-java-8.0.22.jar"/>
+<!--        <file name="/C:/Users/veens08/.m2/repository/mysql/mysql-connector-java/8.0.21/mysql-connector-java-8.0.21.jar"/>-->
 <!--        <file name="/C:/Users/evano/.m2/repository/mysql/mysql-connector-java/8.0.22/mysql-connector-java-8.0.22.jar"/>-->
     </library>
 </server>

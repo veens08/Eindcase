@@ -32,11 +32,11 @@ public class Reservering {
     public Reservering(Persoon contacpersoon){
         super();
         setContactpersoon(contacpersoon);
+        setCode(createReserveringsCode());
     }
 
     public Reservering() {
-        teller++;
-        this.code = createReserveringsCode();
+        setCode(createReserveringsCode());
     }
 
     public int getId() {
@@ -83,8 +83,8 @@ public class Reservering {
         this.contactpersoon = contactpersoon;
     }
 
-    private String createReserveringsCode() {
-        return "CORONA-" + teller;
+    public static String createReserveringsCode() {
+        return "CORONA-" + teller++;
     }
 
     @Override
@@ -93,7 +93,9 @@ public class Reservering {
                 "id=" + id +
                 ", reserveringsDatum=" + reserveringsDatum +
                 ", tijdSlot=" + tijdSlot +
+                ", code='" + code + '\'' +
                 ", aantalPersonen=" + aantalPersonen +
+                ", contactpersoon=" + contactpersoon +
                 '}';
     }
 }

@@ -31,13 +31,13 @@ public class ReserveringResource {
     @Path("/add")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response addReservering(@Valid Reservering reservering) {
-            rds.save(reservering);
-            System.out.println(reservering);
-            return Response.
-                    status(Response.Status.CREATED)
-                    .entity(reservering)
-                    .build();
-
+        reservering.setCode(Reservering.createReserveringsCode());
+        rds.save(reservering);
+        System.out.println(reservering);
+        return Response.
+                status(Response.Status.CREATED)
+                .entity(reservering)
+                .build();
     }
 
     @GET

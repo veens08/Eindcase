@@ -1,4 +1,4 @@
-package startUp;
+package org.hoestschaamte.corona.db;
 
 import org.hoestschaamte.corona.domain.Persoon;
 import org.hoestschaamte.corona.domain.Reservering;

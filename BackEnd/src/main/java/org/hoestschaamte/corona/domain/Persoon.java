@@ -16,8 +16,7 @@ public class Persoon {
     private String telNr;
     private String email;
 
-    public Persoon() {
-    }
+    public Persoon() { }
 
     public Persoon(String naam, String telNr, String email) {
         this.naam = naam;

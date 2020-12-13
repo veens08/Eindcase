@@ -3,7 +3,7 @@ package org.hoestschaamte.corona.db;
 import org.junit.jupiter.api.Test;
 import org.hoestschaamte.corona.db.VulDatabase;
 
-public class dbStartUpTests {
+public class DbStartUpTest {
 
     @Test
 //    @Ignore
