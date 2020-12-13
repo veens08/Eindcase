@@ -6,11 +6,10 @@ import {AppComponent} from './app.component';
 import {ReserveringListComponent} from './component/reservering/reservering-list/reservering-list.component';
 import {PageNotFoundComponent} from './component/page-not-found/page-not-found.component';
 import {HttpClientModule} from '@angular/common/http';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BezoekersComponent} from './component/bezoekers/bezoekers.component';
 import { BesmettingReportComponent } from './component/besmetting-report/besmetting-report.component';
 import { ReserveringDetailComponent } from './component/reservering/reservering-detail/reservering-detail.component';
-import { ReserveringCreateComponent } from './component/reservering/reservering-create/reservering-create.component';
 import { FilterPipe } from './pipe/filter.pipe';
 
 @NgModule({
@@ -21,15 +20,15 @@ import { FilterPipe } from './pipe/filter.pipe';
     BezoekersComponent,
     BesmettingReportComponent,
     ReserveringDetailComponent,
-    ReserveringCreateComponent,
     FilterPipe
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        HttpClientModule,
-        FormsModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

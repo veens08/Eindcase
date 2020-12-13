@@ -1,18 +1,19 @@
-  <div class="row">
-    <div class="col right">
-      <a routerLink="/reservering-create" class="waves-effect waves-light btn">Maak reservering aan</a>
-    </div>
+<div class="row">
+  <div class="col s12 xl4">
+    <h2>Reserveringen</h2>
   </div>
-
-  <h2>Reserveringen</h2>
-
-  <div class="row">
-    <div id="searchFieldWrapper" class="input-field col s12">
-      <i class="material-icons prefix">search</i>
-      <input [(ngModel)]="searchCriterium" id="searchField" type="text" class="validate">
-      <label for="searchField">Zoek op naam of reserveringscode</label>
-    </div>
+  <div class="col s12 xl3 offset-xl5 right">
+    <a class="waves-effect waves-light btn modal-trigger" href="#reserveringRegistratieModal">Maak reservering aan</a>
   </div>
+</div>
+
+<div class="row">
+  <div class="input-field col s12">
+    <i class="material-icons prefix">search</i>
+    <input [(ngModel)]="searchCriterium" id="searchField" type="text" class="validate">
+    <label for="searchField">Zoek op naam of reserveringscode</label>
+  </div>
+</div>
 
 <table class="responsive-table highlight">
   <thead>
@@ -39,3 +40,46 @@
   </tbody>
 </table>
 
+<!-- Modal Structure -->
+<div id="reserveringRegistratieModal" class="modal">
+  <form class="col s12" [formGroup]="reserveringForm">
+    <div class="modal-content">
+      <h4>Maak reservering aan</h4>
+      <div class="row">
+        <div class="input-field col s12 m6">
+          <input formControlName="naam" id="naam" type="text" class="validate">
+          <label for="naam">Naam</label>
+        </div>
+        <div class="input-field col s12 m6">
+          <input formControlName="telNr" id="telnr" type="text" class="validate">
+          <label for="telnr">Telefoonnummer</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12 m6">
+          <input formControlName="email" id="email" type="email" class="validate">
+          <label for="email">Email</label>
+        </div>
+        <div class="input-field col s12 m6">
+          <input formControlName="aantalPersonen" id="aantalPersonen" type="number" class="validate">
+          <label for="aantalPersonen">Aantal personen</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12 m6">
+          <input formControlName="tijdSlot" id="tijd" type="time" class="validate">
+          <label for="tijd">Tijd</label>
+        </div>
+        <div class="input-field col s12 m6">
+          <input formControlName="datum" id="datum" type="date" class="validate">
+          <label for="datum">Datum</label>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button (click)="addReservering()" [disabled]="reserveringForm.invalid" class="btn waves-effect waves-light" type="submit" name="action" >Opslaan
+        <i class="material-icons right">send</i>
+      </button>
+    </div>
+  </form>
+</div>

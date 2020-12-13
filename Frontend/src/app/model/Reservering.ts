@@ -1,10 +1,10 @@
 import {Persoon} from './Persoon';
 
 export interface Reservering {
-  id: number;
+  id?: number;
   reserveringsDatum: Date;
   tijdSlot: number;
-  code: string;
+  code?: string;
   aantalPersonen: number;
   contactpersoon: Persoon;
 }
