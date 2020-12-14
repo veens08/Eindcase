@@ -22,15 +22,16 @@ public class Reservering {
     private String code;
     private int aantalPersonen;
     private static int teller;
-//    @OneToOne
-//    private Tafel tafel;
+    @OneToOne
+    private Tafel tafel;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
     @NotNull(message = "U moet een contactpersoon opgeven")
     private Persoon contactpersoon;
 
-    public Reservering(Persoon contacpersoon){
+    public Reservering(Persoon contacpersoon, Tafel tafel){
         setContactpersoon(contacpersoon);
+        setTafel (tafel);
         setCode(createReserveringsCode());
     }
 
@@ -84,6 +85,14 @@ public class Reservering {
         return "CORONA-" + teller++;
     }
 
+    public Tafel getTafel() {
+        return tafel;
+    }
+
+    public void setTafel(Tafel tafel) {
+        this.tafel = tafel;
+    }
+
     @Override
     public String toString() {
         return "Reservering{" +
@@ -95,4 +104,5 @@ public class Reservering {
                 ", contactpersoon=" + contactpersoon +
                 '}';
     }
+
 }

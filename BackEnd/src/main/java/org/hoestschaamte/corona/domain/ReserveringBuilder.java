@@ -6,12 +6,12 @@ public class ReserveringBuilder {
 
     private Reservering reservering;
 
-    private ReserveringBuilder(Persoon contactpersoon) {
-        this.reservering = new Reservering(contactpersoon);
+    private ReserveringBuilder(Persoon contactpersoon, Tafel tafel) {
+        this.reservering = new Reservering(contactpersoon, tafel);
     }
 
-    public static ReserveringBuilder createReservering(Persoon contactpersoon) {
-        return new ReserveringBuilder(contactpersoon);
+    public static ReserveringBuilder createReservering(Persoon contactpersoon, Tafel tafel) {
+        return new ReserveringBuilder(contactpersoon, tafel);
     }
 
     public ReserveringBuilder metDatum(LocalDate reserveringsDatum) {
