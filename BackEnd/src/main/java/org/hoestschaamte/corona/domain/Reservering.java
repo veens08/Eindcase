@@ -30,14 +30,11 @@ public class Reservering {
     private Persoon contactpersoon;
 
     public Reservering(Persoon contacpersoon){
-        super();
         setContactpersoon(contacpersoon);
         setCode(createReserveringsCode());
     }
 
-    public Reservering() {
-        setCode(createReserveringsCode());
-    }
+    public Reservering() { }
 
     public int getId() {
         return id;

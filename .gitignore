@@ -371,4 +371,7 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+sampleCreate.ddl
+sampleDrop.ddl
+
 # End of https://www.toptal.com/developers/gitignore/api/java,java-web,windows,macos,maven,intellij+all,node,microsoftoffice,libreoffice,git
