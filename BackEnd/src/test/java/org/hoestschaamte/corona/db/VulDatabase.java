@@ -1,9 +1,8 @@
 package org.hoestschaamte.corona.db;
 
-import org.hoestschaamte.corona.domain.Persoon;
-import org.hoestschaamte.corona.domain.Reservering;
-import org.hoestschaamte.corona.domain.ReserveringBuilder;
+import org.hoestschaamte.corona.domain.*;
 
+import javax.ejb.Local;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -68,5 +67,37 @@ public class VulDatabase {
         em.clear();
         emf.getCache().evictAll();
         return persoon;
+    }
+
+    public void maakBezoekersAanVoorTests(){
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory ("test-corona-app-pu");
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction tx = em.getTransaction();
+
+        ArrayList<Persoon> bezoekers = new ArrayList<>();
+
+        Persoon evan = slaPersoonOpEnHaalUitDatabase("Evan", "06-12345678", "evan@gmail.com");
+        Persoon joshua = slaPersoonOpEnHaalUitDatabase("Joshua", "06-11223344", "joshua@gmail.com");
+        Persoon sjoerd = slaPersoonOpEnHaalUitDatabase("Sjoerd", "06-87654321", "sjoerd@gmail.com");
+        bezoekers.add(evan);
+        bezoekers.add(joshua);
+        bezoekers.add(sjoerd);
+
+        Bezoek b1 = BezoekBuilder
+                .createBezoek(bezoekers)
+                .metDatum(LocalDate.of(2020,12,13))
+                .metTijdslot(4)
+                .build();
+
+
+
+        tx.begin();
+        for (Persoon b : bezoekers) {
+            em.persist(b);
+        }
+        tx.commit();
+        em.clear();
+        emf.getCache().evictAll();
+
     }
 }

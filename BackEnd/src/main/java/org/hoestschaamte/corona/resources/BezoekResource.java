@@ -1,13 +1,12 @@
 package org.hoestschaamte.corona.resources;
 
 import org.hoestschaamte.corona.domain.Bezoek;
+import org.hoestschaamte.corona.domain.Persoon;
 import org.hoestschaamte.corona.services.BezoekDaoService;
 
 import javax.inject.Inject;
 import javax.transaction.Transactional;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.awt.*;
 import java.util.List;
@@ -24,5 +23,12 @@ public class BezoekResource {
     @Produces(MediaType.APPLICATION_JSON)
     public List<Bezoek> getBezoeken() {
         return bds.getAll();
+    }
+
+    @POST
+    @Path ("/")
+    @Consumes (MediaType.APPLICATION_JSON)
+    public void addBezoeken(Bezoek bezoek){
+        bds.save(bezoek);
     }
 }
