@@ -1,7 +1,30 @@
 Vijfde sprint (Maandag 14-12-2020):
-    • CRC voorbereiden (rapportage voor GGD)
-    • Bezoek frontend implementeren
-    • Bezoek backend implementeren
-    • Communicatie frontend backend Bezoek implementeren
-Stretch objectives:
-    • Starten met GGD-lijst
+Rolverderling:
+    • PO / Scrummaster (Joshua)
+    • Frontend (Evan)
+    • Backend (Sjoerd)
+
+Todo:
+    • CRC voorbereiden (rapportage voor GGD) (Team)
+    • Maak lijst van bezoeken in de frontend
+    • Beschikbare tafels ophalen en tafel toekennen aan reservering (Sjoerd)
+
+Doing:
+    • Bezoek frontend implementeren (Joshua)
+    • Alleen gezonde klanten mogen het restaurant bezoeken (Joshua)
+    • Validaties reservering aanmaken (Evan)
+    • Bezoek backend implementeren (POST methode aanpassen) (Sjoerd)
+
+Done:
+    • Wanneer een reservering is aangemaakt moet de aangemaakte reservering getoond worden. (Joshua)
+    • Eén zoekveld voor het zoeken van een reservering bij het registreren van een bezoek (zowel met naam als nummer) (Joshua)
+    • Selectbox gebruiken bij tijdslot (Evan)
+
+Globale planneng moet rust en essentie kunnen weergeven.
+Er komt een deadline aan, hoe gaan we daar naartoe werken?
+Responsiveness tabel doet raar in safari en chrome
+
+Demo
+- Wat heb je geleerd
+- Welke knelpunten ben ik tegengekomen en hoe heb je het aangepakt? 
+- Welke dingen heb je in het team ontdekt. 
