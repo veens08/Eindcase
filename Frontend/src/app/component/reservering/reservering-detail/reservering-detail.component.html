@@ -1,55 +1,52 @@
-<div class="row valign-wrapper left-align">
-      <div class="col s12 m2 reservering-attr-titel">Reservering:</div>
-      <div class="input-field col s12 m4 offset-m5">
-        <input disabled value="{{reservering.code}}" type="text" class="validate">
-      </div>
-</div>
-
-<div class="divider"></div>
-<div class="section">
-  <h5>Aanvrager</h5>
-  <div class="row valign-wrapper">
-    <div class="col s12 m2 reservering-attr-titel">Naam:</div>
-    <div class="input-field col s12 m4">
-      <input disabled value="{{reservering.contactpersoon.naam}}" type="text" class="validate">
+<div class="row">
+  <div class="col s12 m6">
+    <div class="section">
+      <span style="font-size: 2.2rem;">Reservering</span>
+      <p style="font-size: 1.5rem;">Code:  <span style="font-size: 1.3rem; color: grey">{{reservering.code}}</span></p>
+      <p style="font-size: 1.5rem;">Aantal personen:  <span style="font-size: 1.3rem; color: grey">{{reservering.aantalPersonen}}</span></p>
+      <p style="font-size: 1.5rem;">Tafelnummer:  <span style="font-size: 1.3rem; color: grey"><!-- TODO: veranderd dit als backend zover is --></span></p>
     </div>
-    <div class="col s12 m2 reservering-attr-titel">Telefoon:</div>
-    <div class="input-field col s12 m4">
-      <input disabled value="{{reservering.contactpersoon.telNr}}" type="text" class="validate">
-    </div>
-  </div>
-  <div class="row valign-wrapper">
-    <div class="col s12 m2 reservering-attr-titel">Email:</div>
-    <div class="input-field col s12 m4">
-      <input disabled value="{{reservering.contactpersoon.email}}" type="text" class="validate">
-    </div>
-    <div class="col s12 m2 reservering-attr-titel">Gezond?</div>
-    <div class="input-field col s12 m4">
-      <div class="switch">
-        <label>
-          <input type="checkbox" class="filled-in" />
-          <span>Ja ik ben gezond</span>
-        </label>
-        <p style="position: absolute; top: 20px;">Klik <a href="#">hier</a> voor meer info</p>
+    <div class="divider" style="margin: 20px 0;"></div>
+    <div class="section">
+      <span style="font-size: 2.2rem">Contactpersoon</span>
+      <p style="font-size: 1.5rem;">Naam:  <span style="font-size: 1.3rem; color: grey">{{reservering.contactpersoon.naam}}</span></p>
+      <p style="font-size: 1.5rem;">Telefoon:  <span style="font-size: 1.3rem; color: grey">{{reservering.contactpersoon.telNr}}</span></p>
+      <p style="font-size: 1.5rem;">Email:  <span style="font-size: 1.3rem; color: grey">{{reservering.contactpersoon.email}}</span></p>
+      <div class="valign-wrapper">
+        <span style="font-size: 1.5rem; margin-right: 20px;">Heeft u klachten? </span>
+        <div class="switch">
+          <label>
+            Nee
+            <input type="checkbox" checked>
+            <span class="lever"></span>
+            Ja
+          </label>
+        </div>
       </div>
     </div>
   </div>
-</div>
-
-<div class="divider"></div>
-<div class="section">
-  <div class="row valign-wrapper">
-    <div class="col s12 m2">
-      <h5>Extra gast(en)</h5>
-    </div>
-    <div class="col s12 m2 left-align">
-      <a class="waves-effect waves-light btn modal-trigger" href="#persoonRegistratieModal">Toevoegen</a>
-    </div>
-    <div class="col s12 m2 offset-m7">
-      <input type="hidden">
+  <div class="col s12 m6">
+    <div class="section">
+      <div class="valign-wrapper" style="margin-bottom: 30px;">
+        <span style="font-size: 2.2rem; margin-right: 20px;">Extra gast(en)</span>
+        <a [ngClass]="{'disabled' : isAantalPersonenBereikt()}" class="waves-effect waves-light btn-small modal-trigger" href="#persoonRegistratieModal">Toevoegen</a>
+      </div>
+      <ul *ngIf="personen.length !== 0" class="collection">
+        <li *ngFor="let p of personen" class="collection-item avatar">
+          <i class="material-icons circle teal">person</i>
+          <span class="title">{{p.naam}}</span>
+          <p>{{p.telNr}} <br>
+            {{p.email}}
+          </p>
+          <a href="#!" (click)="removePersoon(p)" class="secondary-content"><i class="material-icons">delete</i></a>
+        </li>
+      </ul>
     </div>
   </div>
 </div>
+  <button class="btn waves-effect waves-light" type="submit" name="action">Opslaan
+    <i class="material-icons right">send</i>
+  </button>
 
 <!-- Modal Structure -->
 <div id="persoonRegistratieModal" class="modal">
@@ -72,14 +69,15 @@
           <label for="email">Email</label>
         </div>
       </div>
-      <div class="input-field col s12">
-        <span>Gezond?</span>
+      <div class="valign-wrapper">
+        <span style="font-size: 1.5rem; margin-right: 20px;">Heeft u klachten? </span>
         <div class="switch">
           <label>
-            <input type="checkbox" class="filled-in" />
-            <span>Ja ik ben gezond</span>
+            Nee
+            <input type="checkbox" checked>
+            <span class="lever"></span>
+            Ja
           </label>
-          <p style="position: absolute; top: 20px;">Klik <a href="#">hier</a> voor meer info</p>
         </div>
       </div>
       <div class="modal-footer">

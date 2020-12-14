@@ -22,6 +22,7 @@ export class ReserveringDetailComponent implements OnInit, AfterViewInit {
   id: string;
   reservering: Reservering;
   modal: IModal;
+  personen: Persoon[] = [];
 
   persoonRegistratieForm = new FormGroup({
     naam: new FormControl('', [
@@ -56,5 +57,16 @@ export class ReserveringDetailComponent implements OnInit, AfterViewInit {
       telNr: this.persoonRegistratieForm.value.telNr,
       email: this.persoonRegistratieForm.value.email
     };
+    this.personen.push(newPersoon);
+    this.persoonRegistratieForm.reset();
+    this.modal.close();
+  }
+
+  isAantalPersonenBereikt(): boolean {
+    return this.personen.length + 1 >= this.reservering.aantalPersonen;
+  }
+
+  removePersoon(p: Persoon): void {
+    // TODO: wil je deze afmaken Sjoerd? Ik ga slapen...
   }
 }
