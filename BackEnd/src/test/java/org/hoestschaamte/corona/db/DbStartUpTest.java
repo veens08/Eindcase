@@ -10,6 +10,6 @@ public class DbStartUpTest {
     void vulDeInitieleDatabase() {
         VulDatabase vulDatabase = new VulDatabase();
         vulDatabase.maakReserveringenVoorTestAan ();
-        vulDatabase.maakBezoekersAanVoorTests ();
+        vulDatabase.maakBezoekenAanVoorTest ();
     }
 }

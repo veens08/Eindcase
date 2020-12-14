@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import org.hoestschaamte.corona.config.LocalDateAdapter;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
@@ -23,8 +24,9 @@ public class Bezoek {
     private int tijdSlot;
 
     @OneToMany(cascade = CascadeType.PERSIST)
-    @NotNull(message = "U moet gast opgeven")
+    @NotNull(message = "U moet een gast opgeven")
     @Min(1)
+    @Max(4)
     private List<Persoon> gasten;
 
     public Bezoek() {
