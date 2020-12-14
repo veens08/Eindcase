@@ -39,7 +39,7 @@ export class ReserveringListComponent implements OnInit, AfterViewInit {
     ]),
     datum: new FormControl('', [
       Validators.required,
-      // Validators.min(Date.now())
+      Validators.min(Date.now())
     ])
   });
 
