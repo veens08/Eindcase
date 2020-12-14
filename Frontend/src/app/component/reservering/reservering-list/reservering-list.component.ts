@@ -17,25 +17,29 @@ export class ReserveringListComponent implements OnInit, AfterViewInit {
   modal: IModal;
 
   constructor(private reserveringService: ReserveringService, private angular2MaterializeService: Angular2MaterializeV1Service){}
-
   reserveringForm = new FormGroup({
     naam: new FormControl('', [
-      Validators.required
+      Validators.required,
+      Validators.pattern('^[a-zA-Z.\'][a-zA-Z.\']*$'),
     ]),
     telNr: new FormControl('', [
-      Validators.required
+      Validators.required,
+      // Validators.pattern('/^(((0)[1-9]{2}[0-9][-]?[1-9][0-9]{5})|((\\\\+31|0|0031)[1-9][0-9][-]?[1-9][0-9]{6}))$/')
     ]),
     email: new FormControl('', [
-      Validators.required
+      Validators.required,
+      // Validators.pattern('/^([\\w-]+(?:\\.[\\w-]+)*)@((?:[\\w-]+\\.)*\\w[\\w-]{0,66})\\.([a-z]{2,6}(?:\\.[a-z]{2})?)$/i')
     ]),
     aantalPersonen: new FormControl('', [
-      Validators.max(4)
+      Validators.max(4),
+      Validators.min(1)
     ]),
     tijdSlot: new FormControl('', [
       Validators.required
     ]),
     datum: new FormControl('', [
-      Validators.required
+      Validators.required,
+      // Validators.min(Date.now())
     ])
   });
 
