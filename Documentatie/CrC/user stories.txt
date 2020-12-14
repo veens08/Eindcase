@@ -1,0 +1,4 @@
+User stories
+
+US1: Als medewerker wil ik een een lijst van beschikbare tafels opvragen, 
+     zodat ik een reservering kan inboeken.
