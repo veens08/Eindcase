@@ -1,6 +1,6 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {Reservering} from '../../../model/Reservering';
-import {ReserveringService} from '../../../service/reservering.service';
+import {ReserveringService} from '../../../service/reservering/reservering.service';
 import {Angular2MaterializeV1Service} from 'angular2-materialize-v1';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Persoon} from '../../../model/Persoon';

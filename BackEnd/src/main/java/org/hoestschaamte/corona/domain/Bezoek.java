@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import org.hoestschaamte.corona.config.LocalDateAdapter;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.time.LocalDate;
@@ -18,11 +19,12 @@ public class Bezoek {
 
     @XmlJavaTypeAdapter(LocalDateAdapter.class)
     @JsonFormat(pattern = "dd-mm-yyyy", shape = JsonFormat.Shape.STRING)
-    private LocalDate bezoekDatum;
+    private LocalDate datum;
     private int tijdSlot;
 
     @OneToMany(cascade = CascadeType.PERSIST)
     @NotNull(message = "U moet gast opgeven")
+    @Min(1)
     private List<Persoon> gasten;
 
     public Bezoek() {
@@ -30,7 +32,7 @@ public class Bezoek {
 
     public Bezoek(List<Persoon> gasten) {
         super();
-        setGasten (gasten);
+        setGasten(gasten);
     }
 
     public int getId() {
@@ -41,12 +43,12 @@ public class Bezoek {
         this.id = id;
     }
 
-    public LocalDate getBezoekDatum() {
-        return bezoekDatum;
+    public LocalDate getDatum() {
+        return datum;
     }
 
-    public void setBezoekDatum(LocalDate bezoekDatum) {
-        this.bezoekDatum = bezoekDatum;
+    public void setDatum(LocalDate datum) {
+        this.datum = datum;
     }
 
     public int getTijdSlot() {
@@ -65,7 +67,7 @@ public class Bezoek {
     public String toString() {
         return "Bezoek{" +
                 "id=" + id +
-                ", bezoekDatum=" + bezoekDatum +
+                ", datum=" + datum +
                 ", tijdSlot=" + tijdSlot +
                 ", gasten=" + gasten +
                 '}';

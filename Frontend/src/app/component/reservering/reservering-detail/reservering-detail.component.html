@@ -1,8 +1,92 @@
-<div class="row">
-  <div class="col s12 xl4">
-    <h3>{{reservering.contactpersoon.naam}}</h3>
+<div class="row valign-wrapper left-align">
+      <div class="col s12 m2 reservering-attr-titel">Reservering:</div>
+      <div class="input-field col s12 m4 offset-m5">
+        <input disabled value="{{reservering.code}}" type="text" class="validate">
+      </div>
+</div>
+
+<div class="divider"></div>
+<div class="section">
+  <h5>Aanvrager</h5>
+  <div class="row valign-wrapper">
+    <div class="col s12 m2 reservering-attr-titel">Naam:</div>
+    <div class="input-field col s12 m4">
+      <input disabled value="{{reservering.contactpersoon.naam}}" type="text" class="validate">
+    </div>
+    <div class="col s12 m2 reservering-attr-titel">Telefoon:</div>
+    <div class="input-field col s12 m4">
+      <input disabled value="{{reservering.contactpersoon.telNr}}" type="text" class="validate">
+    </div>
   </div>
-  <div class="col s12 xl3 offset-xl5 right">
-    <a (click)="gaPaginaTerug()" class="waves-effect waves-light btn-small">Ga terug</a>
+  <div class="row valign-wrapper">
+    <div class="col s12 m2 reservering-attr-titel">Email:</div>
+    <div class="input-field col s12 m4">
+      <input disabled value="{{reservering.contactpersoon.email}}" type="text" class="validate">
+    </div>
+    <div class="col s12 m2 reservering-attr-titel">Gezond?</div>
+    <div class="input-field col s12 m4">
+      <div class="switch">
+        <label>
+          <input type="checkbox" class="filled-in" />
+          <span>Ja ik ben gezond</span>
+        </label>
+        <p style="position: absolute; top: 20px;">Klik <a href="#">hier</a> voor meer info</p>
+      </div>
+    </div>
   </div>
+</div>
+
+<div class="divider"></div>
+<div class="section">
+  <div class="row valign-wrapper">
+    <div class="col s12 m2">
+      <h5>Extra gast(en)</h5>
+    </div>
+    <div class="col s12 m2 left-align">
+      <a class="waves-effect waves-light btn modal-trigger" href="#persoonRegistratieModal">Toevoegen</a>
+    </div>
+    <div class="col s12 m2 offset-m7">
+      <input type="hidden">
+    </div>
+  </div>
+</div>
+
+<!-- Modal Structure -->
+<div id="persoonRegistratieModal" class="modal">
+  <form class="col s12" [formGroup]="persoonRegistratieForm">
+    <div class="modal-content">
+      <h4>Voeg gast toe</h4>
+      <div class="row">
+        <div class="input-field col s12">
+          <input formControlName="naam" id="naam" type="text" class="validate">
+          <label for="naam">Naam</label>
+        </div>
+        <div class="input-field col s12">
+          <input formControlName="telNr" id="telnr" type="text" class="validate">
+          <label for="telnr">Telefoonnummer</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input formControlName="email" id="email" type="email" class="validate">
+          <label for="email">Email</label>
+        </div>
+      </div>
+      <div class="input-field col s12">
+        <span>Gezond?</span>
+        <div class="switch">
+          <label>
+            <input type="checkbox" class="filled-in" />
+            <span>Ja ik ben gezond</span>
+          </label>
+          <p style="position: absolute; top: 20px;">Klik <a href="#">hier</a> voor meer info</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button (click)="addPersoon()" [disabled]="persoonRegistratieForm.invalid" class="btn waves-effect waves-light" type="submit" name="action" >Toevoegen
+          <i class="material-icons right">send</i>
+        </button>
+      </div>
+    </div>
+  </form>
 </div>

@@ -11,7 +11,7 @@ import javax.ws.rs.core.MediaType;
 import java.awt.*;
 import java.util.List;
 
-@Path ("/bezoek")
+@Path ("/bezoeken")
 @Transactional(Transactional.TxType.REQUIRED)
 public class BezoekResource {
 
