@@ -1,8 +1,15 @@
 Globale planning moet rust en essentie kunnen weergeven.
-Er komt een deadline aan, hoe gaan we daar naartoe werken?
-Responsiveness tabel doet raar in safari en chrome
+Bijvoorbeeld: Er komt een deadline aan, hoe gaan we daar naartoe werken?
+Responsiveness tabel doet raar in safari en chrome.
 
-Demo
-- Wat heb je geleerd
+Presentatie / Demo
+- Wat heb je geleerd?
 - Welke knelpunten ben ik tegengekomen en hoe heb je het aangepakt? 
-- Welke dingen heb je in het team ontdekt. 
+- Welke dingen heb je in het team ontdekt en hoe ben je ermee omgegaan?
+
+Gesprek met John
+- Datum validator is niet zo moeilijk te implementeren. Maar maak het jezelf niet te moeilijk.
+- Kleurtjes gebruiken bij verkeerd invoer
+- Nadenken over een startscherm. Wellicht wordt dit een soort Dashboard scherm, waarbij statistieken en eventueel grafieken worden getoond. Uiteraard met goedkeuring van John.
+- Reserveringscode moet simpeler aangemaakt worden. 
+- Zorg ervoor dat alle basisfunctionaliteiten geïmplementeerd zijn, voordat alle extra's worden toegevoegd.

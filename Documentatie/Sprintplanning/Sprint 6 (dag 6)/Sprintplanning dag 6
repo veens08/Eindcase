@@ -1,9 +1,23 @@
 Sprint dag 6 (Dinsdag 15-12-2020):
+Rolverdeling:
+    • PO / Scrummaster (Evan)
+    • Frontend (Sjoerd)
+    • Backend (Joshua)
+
 Todo:
-    • 
+    • CRC voorbereiden (Beschikbare tafels ophalen 
+      en één toekennen aan een reservering) (Team)
+    • Maak lijst van bezoeken in de frontend (Sjoerd)
+    • Beschikbare tafels ophalen en tafel toekennen aan reservering (Joshua & Evan)
+    • Relatie reservering leggen met bezoek (Joshua en Evan)
+    • Dashboard functionaliteit voorleggen aan John (Team)
+    • Reserveringscode simpeler maken (Joshua / Evan)
+
 Doing:
-    • 
+    • Bezoek frontend implementeren (Sjoerd)
+    • Alleen gezonde klanten mogen het restaurant bezoeken (Sjoerd)
+
 
 Done:
-    • 
-
+    • Validaties reservering aanmaken (Evan)
+    • Bezoek backend implementeren (POST methode aanpassen) (Sjoerd)
