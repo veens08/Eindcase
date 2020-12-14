@@ -15,7 +15,7 @@ public class ReserveringBuilder {
     }
 
     public ReserveringBuilder metDatum(LocalDate reserveringsDatum) {
-        this.reservering.setReserveringsDatum(reserveringsDatum);
+        this.reservering.setDatum(reserveringsDatum);
         return this;
     }
 

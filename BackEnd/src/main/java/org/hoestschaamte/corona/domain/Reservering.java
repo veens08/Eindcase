@@ -17,7 +17,7 @@ public class Reservering {
 
     @XmlJavaTypeAdapter(LocalDateAdapter.class)
     @JsonFormat(pattern = "dd-mm-yyyy", shape = JsonFormat.Shape.STRING)
-    private LocalDate reserveringsDatum;
+    private LocalDate datum;
     private int tijdSlot;
     private String code;
     private int aantalPersonen;
@@ -43,12 +43,12 @@ public class Reservering {
         return id;
     }
 
-    public LocalDate getReserveringsDatum() {
-        return reserveringsDatum;
+    public LocalDate getDatum() {
+        return datum;
     }
 
-    public void setReserveringsDatum(LocalDate reserveringsDatum) {
-        this.reserveringsDatum = reserveringsDatum;
+    public void setDatum(LocalDate datum) {
+        this.datum = datum;
     }
 
     public int getTijdSlot() {
@@ -91,7 +91,7 @@ public class Reservering {
     public String toString() {
         return "Reservering{" +
                 "id=" + id +
-                ", reserveringsDatum=" + reserveringsDatum +
+                ", datum=" + datum +
                 ", tijdSlot=" + tijdSlot +
                 ", code='" + code + '\'' +
                 ", aantalPersonen=" + aantalPersonen +

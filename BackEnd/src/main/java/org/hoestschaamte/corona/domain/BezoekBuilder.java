@@ -15,8 +15,8 @@ public class BezoekBuilder {
         return new BezoekBuilder(gasten);
     }
 
-    public BezoekBuilder metDatum(LocalDate bezoekDatum) {
-        this.bezoek.setBezoekDatum(bezoekDatum);
+    public BezoekBuilder metDatum(LocalDate datum) {
+        this.bezoek.setDatum(datum);
         return this;
     }
 
