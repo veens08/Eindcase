@@ -4,7 +4,7 @@ import {ReserveringService} from '../../../service/reservering/reservering.servi
 import {Angular2MaterializeV1Service} from 'angular2-materialize-v1';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Persoon} from '../../../model/Persoon';
-import {IModal} from 'angular2-materialize-v1/lib/IInstance';
+import {IModal, ISelect} from 'angular2-materialize-v1/lib/IInstance';
 
 @Component({
   selector: 'app-reservering',
@@ -15,6 +15,7 @@ export class ReserveringListComponent implements OnInit, AfterViewInit {
   reserveringen: Reservering[];
   searchCriterium = '';
   modal: IModal;
+  select: ISelect;
 
   constructor(private reserveringService: ReserveringService, private angular2MaterializeService: Angular2MaterializeV1Service){}
   reserveringForm = new FormGroup({
@@ -24,6 +25,8 @@ export class ReserveringListComponent implements OnInit, AfterViewInit {
     ]),
     telNr: new FormControl('', [
       Validators.required,
+      Validators.minLength(10),
+      Validators.maxLength(10)
       // Validators.pattern('/^(((0)[1-9]{2}[0-9][-]?[1-9][0-9]{5})|((\\\\+31|0|0031)[1-9][0-9][-]?[1-9][0-9]{6}))$/')
     ]),
     email: new FormControl('', [
@@ -35,11 +38,11 @@ export class ReserveringListComponent implements OnInit, AfterViewInit {
       Validators.min(1)
     ]),
     tijdSlot: new FormControl('', [
-      Validators.required
+      Validators.min(1),
+      Validators.max(7)
     ]),
     datum: new FormControl('', [
       Validators.required,
-      Validators.min(Date.now())
     ])
   });
 
@@ -51,6 +54,7 @@ export class ReserveringListComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.modal = (this.angular2MaterializeService.initModal('#reserveringRegistratieModal') as IModal);
+    this.select = (this.angular2MaterializeService.initSelect('#tijdslotSelect') as ISelect);
   }
 
   getReserveringen(): Reservering[] {
@@ -68,7 +72,7 @@ export class ReserveringListComponent implements OnInit, AfterViewInit {
       aantalPersonen: this.reserveringForm.value.aantalPersonen,
       tijdSlot: 2, // TODO: tijdslot moet bepaald worden aan de hand van de tijd die meegegeven wordt
       // tijdSlot: this.reserveringForm.value.tijdSlot,
-      reserveringsDatum: this.reserveringForm.value.datum,
+      datum: this.reserveringForm.value.datum,
     };
 
     this.reserveringService.save(newReservering).subscribe(r => {

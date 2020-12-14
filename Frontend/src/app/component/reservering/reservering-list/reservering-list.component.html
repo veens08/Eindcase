@@ -49,26 +49,42 @@
         <div class="input-field col s12 m6">
           <input formControlName="naam" id="naam" type="text" class="validate">
           <label for="naam">Naam</label>
+          <span *ngIf="reserveringForm.controls.naam.touched && reserveringForm.controls.naam.invalid">Vul een correcte naam in.</span>
         </div>
         <div class="input-field col s12 m6">
           <input formControlName="telNr" id="telnr" type="text" class="validate">
           <label for="telnr">Telefoonnummer</label>
+          <span *ngIf="reserveringForm.controls.telNr.touched && reserveringForm.controls.telNr.invalid">Vul een correct telefoonnummer in.</span>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12 m6">
           <input formControlName="email" id="email" type="email" class="validate">
           <label for="email">Email</label>
+          <span *ngIf="reserveringForm.controls.email.touched && reserveringForm.controls.email.invalid">Vul een correcte email in.</span>
         </div>
         <div class="input-field col s12 m6">
           <input formControlName="aantalPersonen" id="aantalPersonen" type="number" class="validate">
           <label for="aantalPersonen">Aantal personen</label>
+          <span *ngIf="reserveringForm.controls.aantalPersonen.touched && reserveringForm.controls.aantalPersonen.invalid">Vul een correct aantal personen in. (minimaal 1, maximaal 4)</span>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12 m6">
-          <input formControlName="tijdSlot" id="tijd" type="time" class="validate">
-          <label for="tijd">Tijd</label>
+          <select class="input" id="tijdslotSelect">
+            <optgroup label="Lunch">
+              <option value="1">12 - 13 uur</option>
+              <option value="2">13 - 14 uur</option>
+              <option value="3">14 - 15 uur</option>
+              <option value="4">15 - 16 uur</option>
+              <option value="5">16 - 17 uur</option>
+            </optgroup>
+            <optgroup label="Diner">
+              <option value="6">17 - 19 uur</option>
+              <option value="7">19 - 21 uur</option>
+            </optgroup>
+          </select>
+          <label>Tijdslot</label>
         </div>
         <div class="input-field col s12 m6">
           <input formControlName="datum" id="datum" type="date" class="validate">
