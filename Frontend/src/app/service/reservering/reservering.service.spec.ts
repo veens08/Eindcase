@@ -14,7 +14,7 @@ describe('ReserveringService', () => {
   });
 
   it('should return true when checking if reserveringen array is truthy', () => {
-    expect(service.getReserveringen()).toBeTruthy();
+    expect(service.getAll()).toBeTruthy();
   });
 
 });

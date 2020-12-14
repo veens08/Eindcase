@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Reservering} from '../model/Reservering';
+import {Reservering} from '../../model/Reservering';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 
@@ -23,7 +23,6 @@ export class ReserveringService {
 
   save(reservering: Reservering): Observable<any> {
     const contentTypeHeader = new HttpHeaders({contentType: 'application/json'});
-    const observableResponse = this.httpClient.post(this.API_URL + '/add', reservering, {headers: contentTypeHeader});
-    return observableResponse;
+    return this.httpClient.post(this.API_URL + '/add', reservering, {headers: contentTypeHeader});
   }
 }
