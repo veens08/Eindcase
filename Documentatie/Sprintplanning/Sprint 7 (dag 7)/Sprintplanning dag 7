@@ -5,9 +5,23 @@ Rolverdeling:
     • Backend (Evan)
 
 Todo:
-    •
-
+    • Dashboard implementeren
+    • Validaties afronden (datum/gezondheid/ email)
+        • Rode omlijning om invoervelden indien incorrect;
+        • Niet door kunnen gaan tot alle velden voldoen aan validaties;
+    • Als reservering toegevoegd is, melding met: "Reservering toevoegen voltooid!"
+    • Bezoekerslijst bij besmetting
+    • Puntjes op de i zetten
+    • Door alle code heen lopen
+        • Ongebruikte en overbodige code verwijderen
+    • Voorbereiden demo met PowerPoint presentatie;
 
 Doing:
+    • ReserveringsCode versimpelen
+    •
 
 Done:
+    • Dashboard functionaliteit voorleggen aan John (Team) (Goedgekeurd)
+        • Geen omzet, wel tijd/aantal reserveringen van de dag/ aantal bezoekers aanwezig
+    • Beschikbare tafels ophalen
+    •
