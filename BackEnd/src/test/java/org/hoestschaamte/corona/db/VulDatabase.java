@@ -1,5 +1,6 @@
 package org.hoestschaamte.corona.db;
 
+import org.hoestschaamte.corona.builder.TafelBuilder;
 import org.hoestschaamte.corona.domain.*;
 
 import javax.ejb.Local;
@@ -16,11 +17,34 @@ public class VulDatabase {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory ("test-corona-app-pu");
         EntityManager em = emf.createEntityManager();
         EntityTransaction tx = em.getTransaction();
-        ArrayList<Reservering> reserveringen = new ArrayList<Reservering> ();
 
-        Tafel t1 = slaTafelOpEnHaalUitDatabase (10,4);
-        Tafel t2 = slaTafelOpEnHaalUitDatabase (11,4);
-        Tafel t3 = slaTafelOpEnHaalUitDatabase (12,4);
+        Tafel t1 = TafelBuilder
+                .createTafel(10)
+                .metAantalPersonen(4)
+                .metCluster(1)
+                .build();
+
+        Tafel t2 = TafelBuilder
+                .createTafel(11)
+                .metAantalPersonen(4)
+                .metCluster(2)
+                .build();
+
+        Tafel t3 = TafelBuilder
+                .createTafel(12)
+                .metAantalPersonen(3)
+                .metCluster(1)
+                .build();
+
+        List<Tafel> tafels = Arrays.asList(t1, t2, t3);
+
+        tx.begin();
+        for (Tafel t : tafels) {
+            em.persist(t);
+        }
+        tx.commit();
+        em.clear();
+        emf.getCache().evictAll();
 
         Persoon evan = slaPersoonOpEnHaalUitDatabase("Evan", "06-12345678", "evan@gmail.com");
         Persoon joshua = slaPersoonOpEnHaalUitDatabase("Joshua", "06-11223344", "joshua@gmail.com");
@@ -47,7 +71,7 @@ public class VulDatabase {
                 .metTijdslot(2)
                 .build();
 
-        reserveringen.addAll(Arrays.asList(r1, r2, r3));
+        List<Reservering> reserveringen = Arrays.asList(r1, r2, r3);
 
         tx.begin();
         for (Reservering r : reserveringen) {
@@ -72,12 +96,11 @@ public class VulDatabase {
         return haalPersoonOpUitDatabase (naam);
     }
 
-    private Tafel slaTafelOpEnHaalUitDatabase(int tafelNummer, int aantalPersonen) {
+    private Tafel slaTafelOpEnHaalUitDatabase(Tafel tafel) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory ("test-corona-app-pu");
         EntityManager em = emf.createEntityManager();
         EntityTransaction tx = em.getTransaction();
         tx.begin();
-        Tafel tafel = new Tafel (tafelNummer, aantalPersonen);
         em.persist(tafel);
         tx.commit();
         System.out.println(tafel);
