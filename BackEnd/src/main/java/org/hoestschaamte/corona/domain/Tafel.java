@@ -7,26 +7,23 @@ import javax.persistence.Id;
 
 @Entity
 public class Tafel {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private int tafelNummer;
     private int aantalZitplaatsen;
+    private int cluster;
 
     public Tafel() {
     }
 
-    public Tafel(int tafelNummer, int aantalZitplaatsen) {
+    public Tafel(int tafelNummer) {
         this.tafelNummer = tafelNummer;
-        this.aantalZitplaatsen = aantalZitplaatsen;
     }
 
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public int getTafelNummer() {
@@ -43,6 +40,14 @@ public class Tafel {
 
     public void setAantalZitplaatsen(int aantalZitplaatsen) {
         this.aantalZitplaatsen = aantalZitplaatsen;
+    }
+
+    public int getCluster() {
+        return cluster;
+    }
+
+    public void setCluster(int cluster) {
+        this.cluster = cluster;
     }
 
     @Override
