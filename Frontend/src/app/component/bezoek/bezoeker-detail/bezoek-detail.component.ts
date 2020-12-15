@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import {Bezoek} from '../../model/Bezoek';
-import {BezoekService} from '../../service/bezoek/bezoek.service';
+import {Bezoek} from '../../../model/Bezoek';
+import {BezoekService} from '../../../service/bezoek/bezoek.service';
 
 @Component({
   selector: 'app-bezoekers',
-  templateUrl: './bezoek.component.html',
-  styleUrls: ['./bezoek.component.scss']
+  templateUrl: './bezoek-detail.component.html',
+  styleUrls: ['./bezoek-detail.component.scss']
 })
-export class BezoekComponent implements OnInit {
+export class BezoekDetailComponent implements OnInit {
   bezoeken: Bezoek[];
 
   constructor(private bezoekService: BezoekService) { }

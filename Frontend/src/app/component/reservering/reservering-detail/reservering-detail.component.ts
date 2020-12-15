@@ -26,13 +26,18 @@ export class ReserveringDetailComponent implements OnInit, AfterViewInit {
 
   persoonRegistratieForm = new FormGroup({
     naam: new FormControl('', [
-      Validators.required
+      Validators.required,
+      Validators.pattern('^[a-zA-Z.\'][a-zA-Z.\']*$'),
     ]),
     telNr: new FormControl('', [
-      Validators.required
+      Validators.required,
+      Validators.minLength(10),
+      Validators.maxLength(10),
+      // Validators.pattern('/^\+?([0-9]{2})\)?[-. ]?([0-9]{4})[-. ]?([0-9]{4})$/')
     ]),
     email: new FormControl('', [
-      Validators.required
+      Validators.required,
+      Validators.pattern('^https?://.*$')
     ])
   });
 
