@@ -18,10 +18,11 @@ public class Reservering {
     @XmlJavaTypeAdapter(LocalDateAdapter.class)
     @JsonFormat(pattern = "dd-mm-yyyy", shape = JsonFormat.Shape.STRING)
     private LocalDate datum;
+//    private String datum;
     private int tijdSlot;
     private String code;
     private int aantalPersonen;
-    private static int teller;
+    private static int teller = 10000;
 
     @OneToOne
     private Tafel tafel;
@@ -45,11 +46,12 @@ public class Reservering {
         return id;
     }
 
-    public LocalDate getDatum() {
+    public LocalDate getDatum(){
+//    public String getDatum() {
         return datum;
     }
-
     public void setDatum(LocalDate datum) {
+//    public void setDatum(String datum) {
         this.datum = datum;
     }
 
@@ -86,7 +88,10 @@ public class Reservering {
     }
 
     public static String createReserveringsCode() {
-        return "CORONA-" + teller++;
+        String format = String.format("%05d", teller++);
+        String hs = "HS-";
+
+        return hs + format;
     }
 
     public Tafel getTafel() {

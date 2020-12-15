@@ -35,12 +35,11 @@ public class TafelResource {
     @GET
     @Path("/{datum}/{tijdslot}")
     @Produces(MediaType.APPLICATION_JSON)
-    public int tafelsBeschikbaarPerTijdslot(@PathParam("datum") LocalDate datum, @PathParam("tijdslot") int tijdslot){
+    public int tafelsBeschikbaarPerTijdslot(@PathParam("datum") String datum, @PathParam("tijdslot") int tijdslot){
         final int DEFAULT_AANTAL_TAFELS = 10;
         List<Reservering> lijstMetReserveringenInTijdslot = rds.getReserveringenByTijdslot(datum, tijdslot);
         int aantalReserveringenInTijdslot = lijstMetReserveringenInTijdslot.size();
-        int aantalBeschikbareTafels = DEFAULT_AANTAL_TAFELS - aantalReserveringenInTijdslot;
 
-        return aantalBeschikbareTafels;
+        return DEFAULT_AANTAL_TAFELS - aantalReserveringenInTijdslot;
     }
 }

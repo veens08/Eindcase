@@ -54,6 +54,7 @@ public class VulDatabase {
                 .createReservering(evan, t1)
                 .metAantalPersonen(3)
                 .metDatum(LocalDate.of(2020, 12, 25))
+//                .metDatum("2020-12-25")
                 .metTijdslot(1)
                 .build();
 
@@ -61,6 +62,7 @@ public class VulDatabase {
                 .createReservering(joshua,t2)
                 .metAantalPersonen(2)
                 .metDatum(LocalDate.of(2020, 12, 25))
+//                .metDatum("2020-12-25")
                 .metTijdslot(1)
                 .build();
 
@@ -68,6 +70,7 @@ public class VulDatabase {
                 .createReservering(sjoerd, t1)
                 .metAantalPersonen(2)
                 .metDatum(LocalDate.of(2020, 12, 21))
+//                .metDatum("2020-12-21")
                 .metTijdslot(2)
                 .build();
 

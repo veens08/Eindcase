@@ -25,9 +25,9 @@ public class ReserveringDaoServiceImpl extends DefaultDaoServiceImpl<Reservering
     }
 
     @Override
-    public List<Reservering> getReserveringenByTijdslot(LocalDate datum, int tijdslot) {
+    public List<Reservering> getReserveringenByTijdslot(String datum, int tijdslot) {
         final String stringQuery = "SELECT r FROM Reservering AS r " +
-                "WHERE r.tijdSlot =  " + tijdslot;
+                "WHERE r.datum = '" + datum +  "' AND r.tijdSlot = " + tijdslot;
         return haalLijstOpVanQuery(stringQuery);
     }
 }

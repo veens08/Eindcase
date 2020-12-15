@@ -1,7 +1,10 @@
 package org.hoestschaamte.corona.db;
 
+import org.hoestschaamte.corona.domain.Reservering;
 import org.junit.jupiter.api.Test;
 import org.hoestschaamte.corona.db.VulDatabase;
+
+import java.util.List;
 
 public class DbStartUpTest {
 
@@ -12,4 +15,5 @@ public class DbStartUpTest {
         vulDatabase.maakReserveringenVoorTestAan ();
         vulDatabase.maakBezoekenAanVoorTest ();
     }
+    
 }
