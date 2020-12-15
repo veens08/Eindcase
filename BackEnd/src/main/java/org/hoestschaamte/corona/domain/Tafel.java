@@ -11,27 +11,27 @@ public class Tafel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private int tafelNummer;
+    private int nummer;
     private int aantalZitplaatsen;
     private int cluster;
 
     public Tafel() {
     }
 
-    public Tafel(int tafelNummer) {
-        this.tafelNummer = tafelNummer;
+    public Tafel(int nummer) {
+        this.nummer = nummer;
     }
 
     public int getId() {
         return id;
     }
 
-    public int getTafelNummer() {
-        return tafelNummer;
+    public int getNummer() {
+        return nummer;
     }
 
-    public void setTafelNummer(int tafelNummer) {
-        this.tafelNummer = tafelNummer;
+    public void setNummer(int nummer) {
+        this.nummer = nummer;
     }
 
     public int getAantalZitplaatsen() {
@@ -54,7 +54,7 @@ public class Tafel {
     public String toString() {
         return "Tafel{" +
                 "id=" + id +
-                ", tafelNummer=" + tafelNummer +
+                ", nummer=" + nummer +
                 ", aantalZitplaatsen=" + aantalZitplaatsen +
                 '}';
     }

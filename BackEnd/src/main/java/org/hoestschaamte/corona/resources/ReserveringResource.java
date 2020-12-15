@@ -55,6 +55,5 @@ public class ReserveringResource {
         return rds.getById(id);
     }
 
-
 }
 

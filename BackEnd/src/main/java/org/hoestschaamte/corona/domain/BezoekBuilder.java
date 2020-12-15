@@ -7,12 +7,12 @@ public class BezoekBuilder {
 
     private Bezoek bezoek;
 
-    private BezoekBuilder(List<Persoon> gasten) {
-        this.bezoek = new Bezoek(gasten);
+    private BezoekBuilder(Tafel tafel, List<Persoon> gasten) {
+        this.bezoek = new Bezoek(tafel, gasten);
     }
 
-    public static BezoekBuilder createBezoek(List<Persoon> gasten) {
-        return new BezoekBuilder(gasten);
+    public static BezoekBuilder createBezoek(Tafel tafel, List<Persoon> gasten) {
+        return new BezoekBuilder(tafel, gasten);
     }
 
     public BezoekBuilder metDatum(LocalDate datum) {

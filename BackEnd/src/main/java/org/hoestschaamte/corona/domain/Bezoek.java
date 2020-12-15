@@ -4,9 +4,6 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import org.hoestschaamte.corona.config.LocalDateAdapter;
 
 import javax.persistence.*;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.time.LocalDate;
 import java.util.List;
@@ -24,25 +21,25 @@ public class Bezoek {
     private int tijdSlot;
 
     @OneToMany(cascade = CascadeType.PERSIST)
-    @NotNull(message = "U moet een gast opgeven")
-    @Min(1)
-    @Max(4)
+//    @NotNull(message = "U moet een gast opgeven")
+//    @Min(1)
+//    @Max(4)
     private List<Persoon> gasten;
+
+    @OneToOne
+    private Tafel tafel;
 
     public Bezoek() {
     }
 
-    public Bezoek(List<Persoon> gasten) {
+    public Bezoek(Tafel tafel, List<Persoon> gasten) {
         super();
+        setTafel(tafel);
         setGasten(gasten);
     }
 
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public LocalDate getDatum() {
@@ -61,8 +58,20 @@ public class Bezoek {
         this.tijdSlot = tijdSlot;
     }
 
+    public List<Persoon> getGasten() {
+        return gasten;
+    }
+
     public void setGasten(List<Persoon> gasten) {
         this.gasten = gasten;
+    }
+
+    public Tafel getTafel() {
+        return tafel;
+    }
+
+    public void setTafel(Tafel tafel) {
+        this.tafel = tafel;
     }
 
     @Override

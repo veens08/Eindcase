@@ -5,6 +5,7 @@ import org.hoestschaamte.corona.domain.Tafel;
 import org.hoestschaamte.corona.services.ReserveringDaoService;
 import org.hoestschaamte.corona.services.TafelDaoService;
 
+import javax.ejb.Local;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 import javax.ws.rs.GET;
@@ -37,7 +38,12 @@ public class TafelResource {
     @Produces(MediaType.APPLICATION_JSON)
     public int tafelsBeschikbaarPerTijdslot(@PathParam("datum") String datum, @PathParam("tijdslot") int tijdslot){
         final int DEFAULT_AANTAL_TAFELS = 10;
-        List<Reservering> lijstMetReserveringenInTijdslot = rds.getReserveringenByTijdslot(datum, tijdslot);
+
+        //Parse String to LocalDate
+        LocalDate datumParsed = LocalDate.parse(datum);
+
+        List<Reservering> lijstMetReserveringenInTijdslot = rds.getReserveringenByTijdslot(datumParsed, tijdslot);
+
         int aantalReserveringenInTijdslot = lijstMetReserveringenInTijdslot.size();
 
         return DEFAULT_AANTAL_TAFELS - aantalReserveringenInTijdslot;

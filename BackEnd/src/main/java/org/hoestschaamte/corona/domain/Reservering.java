@@ -17,6 +17,7 @@ public class Reservering {
 
     @XmlJavaTypeAdapter(LocalDateAdapter.class)
     @JsonFormat(pattern = "dd-mm-yyyy", shape = JsonFormat.Shape.STRING)
+
     private LocalDate datum;
 //    private String datum;
     private int tijdSlot;
@@ -26,9 +27,6 @@ public class Reservering {
 
     @OneToOne
     private Tafel tafel;
-
-    @OneToOne
-    private Bezoek bezoek;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
     @NotNull(message = "U moet een contactpersoon opgeven")
@@ -46,6 +44,7 @@ public class Reservering {
         return id;
     }
 
+
     public LocalDate getDatum(){
 //    public String getDatum() {
         return datum;
@@ -53,6 +52,8 @@ public class Reservering {
     public void setDatum(LocalDate datum) {
 //    public void setDatum(String datum) {
         this.datum = datum;
+
+//        this.datum = datum.toString();
     }
 
     public int getTijdSlot() {
@@ -100,14 +101,6 @@ public class Reservering {
 
     public void setTafel(Tafel tafel) {
         this.tafel = tafel;
-    }
-
-    public Bezoek getBezoek() {
-        return bezoek;
-    }
-
-    public void setBezoek(Bezoek bezoek) {
-        this.bezoek = bezoek;
     }
 
     @Override
