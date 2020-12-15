@@ -3,8 +3,10 @@ package org.hoestschaamte.corona.services.impl;
 import org.hoestschaamte.corona.domain.Reservering;
 import org.hoestschaamte.corona.services.ReserveringDaoService;
 
+import javax.ejb.Local;
 import javax.transaction.Transactional;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -27,7 +29,8 @@ public class ReserveringDaoServiceImpl extends DefaultDaoServiceImpl<Reservering
     @Override
     public List<Reservering> getReserveringenByTijdslot(LocalDate datum, int tijdslot) {
         final String stringQuery = "SELECT r FROM Reservering AS r " +
-                "WHERE r.tijdSlot =  " + tijdslot;
+                "WHERE r.datum = '" + datum + "'" + " AND r.tijdSlot =  " + tijdslot;
+
         return haalLijstOpVanQuery(stringQuery);
     }
 }
