@@ -7,7 +7,7 @@ import {ReserveringListComponent} from './component/reservering/reservering-list
 import {PageNotFoundComponent} from './component/page-not-found/page-not-found.component';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {BezoekComponent} from './component/bezoek/bezoek.component';
+import {BezoekDetailComponent} from './component/bezoek/bezoeker-detail/bezoek-detail.component';
 import { BesmettingReportComponent } from './component/besmetting-report/besmetting-report.component';
 import { ReserveringDetailComponent } from './component/reservering/reservering-detail/reservering-detail.component';
 import { FilterPipe } from './pipe/filter.pipe';
@@ -17,7 +17,7 @@ import { FilterPipe } from './pipe/filter.pipe';
     AppComponent,
     ReserveringListComponent,
     PageNotFoundComponent,
-    BezoekComponent,
+    BezoekDetailComponent,
     BesmettingReportComponent,
     ReserveringDetailComponent,
     FilterPipe

@@ -53,22 +53,6 @@
   <form class="col s12" [formGroup]="persoonRegistratieForm">
     <div class="modal-content">
       <h4>Voeg gast toe</h4>
-      <div class="row">
-        <div class="input-field col s12">
-          <input formControlName="naam" id="naam" type="text" class="validate">
-          <label for="naam">Naam</label>
-        </div>
-        <div class="input-field col s12">
-          <input formControlName="telNr" id="telnr" type="text" class="validate">
-          <label for="telnr">Telefoonnummer</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <input formControlName="email" id="email" type="email" class="validate">
-          <label for="email">Email</label>
-        </div>
-      </div>
       <div class="valign-wrapper">
         <span style="font-size: 1.5rem; margin-right: 20px;">Heeft u klachten? </span>
         <div class="switch">
@@ -78,6 +62,25 @@
             <span class="lever"></span>
             Ja
           </label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input formControlName="naam" id="naam" type="text" class="validate">
+          <label for="naam">Naam</label>
+          <span *ngIf="persoonRegistratieForm.controls.naam.touched && persoonRegistratieForm.controls.naam.invalid">Vul een correcte naam in.</span>
+        </div>
+        <div class="input-field col s12">
+          <input formControlName="telNr" id="telnr" type="text" class="validate">
+          <label for="telnr">Telefoonnummer</label>
+          <span *ngIf="persoonRegistratieForm.controls.telNr.touched && persoonRegistratieForm.controls.telNr.invalid">Vul een correct telefoonnummer in.</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input formControlName="email" id="email" type="email" class="validate">
+          <label for="email">Email</label>
+          <span *ngIf="persoonRegistratieForm.controls.email.touched && persoonRegistratieForm.controls.email.invalid">Vul een correcte email in.</span>
         </div>
       </div>
       <div class="modal-footer">

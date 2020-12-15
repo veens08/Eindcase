@@ -25,13 +25,11 @@ export class ReserveringListComponent implements OnInit, AfterViewInit {
     ]),
     telNr: new FormControl('', [
       Validators.required,
-      Validators.minLength(10),
-      Validators.maxLength(10)
-      // Validators.pattern('/^(((0)[1-9]{2}[0-9][-]?[1-9][0-9]{5})|((\\\\+31|0|0031)[1-9][0-9][-]?[1-9][0-9]{6}))$/')
+      Validators.pattern('^((\\+|00(\\s|\\s?\\-\\s?)?)31(\\s|\\s?\\-\\s?)?(\\(0\\)[\\-\\s]?)?|0)[1-9]((\\s|\\s?\\-\\s?)?[0-9])((\\s|\\s?-\\s?)?[0-9])((\\s|\\s?-\\s?)?[0-9])\\s?[0-9]\\s?[0-9]\\s?[0-9]\\s?[0-9]\\s?[0-9]$')
     ]),
     email: new FormControl('', [
       Validators.required,
-      // Validators.pattern('/^([\\w-]+(?:\\.[\\w-]+)*)@((?:[\\w-]+\\.)*\\w[\\w-]{0,66})\\.([a-z]{2,6}(?:\\.[a-z]{2})?)$/i')
+      Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')
     ]),
     aantalPersonen: new FormControl('', [
       Validators.max(4),
