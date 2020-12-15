@@ -31,13 +31,13 @@ export class ReserveringDetailComponent implements OnInit, AfterViewInit {
     ]),
     telNr: new FormControl('', [
       Validators.required,
-      Validators.minLength(10),
-      Validators.maxLength(10),
-      // Validators.pattern('/^\+?([0-9]{2})\)?[-. ]?([0-9]{4})[-. ]?([0-9]{4})$/')
+      // Validators.minLength(10),
+      // Validators.maxLength(10),
+      Validators.pattern('^((\\+|00(\\s|\\s?\\-\\s?)?)31(\\s|\\s?\\-\\s?)?(\\(0\\)[\\-\\s]?)?|0)[1-9]((\\s|\\s?\\-\\s?)?[0-9])((\\s|\\s?-\\s?)?[0-9])((\\s|\\s?-\\s?)?[0-9])\\s?[0-9]\\s?[0-9]\\s?[0-9]\\s?[0-9]\\s?[0-9]$')
     ]),
     email: new FormControl('', [
       Validators.required,
-      Validators.pattern('^https?://.*$')
+      Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')
     ])
   });
 

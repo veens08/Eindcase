@@ -53,6 +53,17 @@
   <form class="col s12" [formGroup]="persoonRegistratieForm">
     <div class="modal-content">
       <h4>Voeg gast toe</h4>
+      <div class="valign-wrapper">
+        <span style="font-size: 1.5rem; margin-right: 20px;">Heeft u klachten? </span>
+        <div class="switch">
+          <label>
+            Nee
+            <input type="checkbox" checked>
+            <span class="lever"></span>
+            Ja
+          </label>
+        </div>
+      </div>
       <div class="row">
         <div class="input-field col s12">
           <input formControlName="naam" id="naam" type="text" class="validate">
@@ -70,17 +81,6 @@
           <input formControlName="email" id="email" type="email" class="validate">
           <label for="email">Email</label>
           <span *ngIf="persoonRegistratieForm.controls.email.touched && persoonRegistratieForm.controls.email.invalid">Vul een correcte email in.</span>
-        </div>
-      </div>
-      <div class="valign-wrapper">
-        <span style="font-size: 1.5rem; margin-right: 20px;">Heeft u klachten? </span>
-        <div class="switch">
-          <label>
-            Nee
-            <input type="checkbox" checked>
-            <span class="lever"></span>
-            Ja
-          </label>
         </div>
       </div>
       <div class="modal-footer">
