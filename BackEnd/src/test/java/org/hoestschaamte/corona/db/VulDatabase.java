@@ -122,8 +122,36 @@ public class VulDatabase {
         gastenBezoek1.add(evan);
         gastenBezoek1.add(joshua);
 
+        Tafel t1 = TafelBuilder
+                .createTafel(4)
+                .metAantalPersonen(4)
+                .metCluster(3)
+                .build();
+
+        Tafel t2 = TafelBuilder
+                .createTafel(5)
+                .metAantalPersonen(4)
+                .metCluster(3)
+                .build();
+
+        Tafel t3 = TafelBuilder
+                .createTafel(6)
+                .metAantalPersonen(3)
+                .metCluster(4)
+                .build();
+
+        List<Tafel> tafels = Arrays.asList(t1, t2, t3);
+
+        tx.begin();
+        for (Tafel t : tafels) {
+            em.persist(t);
+        }
+        tx.commit();
+        em.clear();
+        emf.getCache().evictAll();
+
         Bezoek b1 = BezoekBuilder
-                .createBezoek(gastenBezoek1)
+                .createBezoek(t1, gastenBezoek1)
                 .metDatum(LocalDate.of(2020,12,15))
                 .metTijdslot(1)
                 .build();
@@ -133,7 +161,7 @@ public class VulDatabase {
         gastenBezoek2.add(evan);
 
         Bezoek b2 = BezoekBuilder
-                .createBezoek(gastenBezoek2)
+                .createBezoek(t2, gastenBezoek2)
                 .metDatum(LocalDate.of(2020,12,14))
                 .metTijdslot(2)
                 .build();
@@ -147,6 +175,27 @@ public class VulDatabase {
         tx.commit();
         em.clear();
         emf.getCache().evictAll();
+    }
+
+    private Reservering haalReserveringOpOpNaam(String naam){
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory ("test-corona-app-pu");
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        tx.begin();
+        TypedQuery<Reservering> typedQuery = em.createQuery("SELECT r FROM Reservering r WHERE r.contactpersoon.naam = :naam",
+                Reservering.class);
+        typedQuery.setParameter ("naam", naam);
+        List<Reservering> reserveringen = typedQuery.getResultList();
+
+        if (reserveringen.isEmpty ()) {
+            return null;
+        }
+
+        final Reservering reservering = reserveringen.get (0);
+
+        em.clear();
+        emf.getCache().evictAll();
+        return reservering;
     }
 
     private Persoon haalPersoonOpUitDatabase(String naam) {

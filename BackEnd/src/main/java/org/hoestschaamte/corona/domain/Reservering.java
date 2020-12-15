@@ -26,9 +26,6 @@ public class Reservering {
     @OneToOne
     private Tafel tafel;
 
-    @OneToOne
-    private Bezoek bezoek;
-
     @ManyToOne(cascade = CascadeType.PERSIST)
     @NotNull(message = "U moet een contactpersoon opgeven")
     private Persoon contactpersoon;
@@ -96,14 +93,6 @@ public class Reservering {
 
     public void setTafel(Tafel tafel) {
         this.tafel = tafel;
-    }
-
-    public Bezoek getBezoek() {
-        return bezoek;
-    }
-
-    public void setBezoek(Bezoek bezoek) {
-        this.bezoek = bezoek;
     }
 
     @Override
