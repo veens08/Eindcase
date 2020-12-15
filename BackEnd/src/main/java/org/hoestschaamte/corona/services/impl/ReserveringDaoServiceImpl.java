@@ -4,6 +4,8 @@ import org.hoestschaamte.corona.domain.Reservering;
 import org.hoestschaamte.corona.services.ReserveringDaoService;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Transactional
@@ -19,5 +21,12 @@ public class ReserveringDaoServiceImpl extends DefaultDaoServiceImpl<Reservering
                 "WHERE r.code = '" + reserveringsCode + "'";
         Optional<Reservering> reserveringOptional = voerQueryUitEnGeefEnkeleResultaatTerug(stringQuery);
         return reserveringOptional.isPresent() ? reserveringOptional.get() : null;
+    }
+
+    @Override
+    public List<Reservering> getReserveringenByTijdslot(int tijdslot) {
+        final String stringQuery = "SELECT r FROM Reservering AS r " +
+                "WHERE r.tijdSlot =  " + tijdslot;
+        return haalLijstOpVanQuery(stringQuery);
     }
 }

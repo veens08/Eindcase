@@ -54,5 +54,7 @@ public class ReserveringResource {
     public Reservering getById(@PathParam("id") int id) {
         return rds.getById(id);
     }
+
+
 }
 
