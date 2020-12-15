@@ -2,6 +2,7 @@ package org.hoestschaamte.corona.services;
 
 import org.hoestschaamte.corona.domain.Reservering;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public interface ReserveringDaoService extends DefaultDaoService<Reservering> {
@@ -13,5 +14,5 @@ public interface ReserveringDaoService extends DefaultDaoService<Reservering> {
      */
     Reservering getByReserveringsCode(String reserveringsCode);
 
-    List<Reservering> getReserveringenByTijdslot(int tijdslot);
+    List<Reservering> getReserveringenByTijdslot(LocalDate vandaag, int tijdslot);
 }

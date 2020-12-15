@@ -12,6 +12,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import java.time.LocalDate;
 import java.util.List;
 
 @Path("/tafels")
@@ -32,11 +33,11 @@ public class TafelResource {
     }
 
     @GET
-    @Path("/{tijdslot}")
+    @Path("/{datum}/{tijdslot}")
     @Produces(MediaType.APPLICATION_JSON)
-    public int tafelsBeschikbaarPerTijdslot(@PathParam("tijdslot") int tijdslot){
+    public int tafelsBeschikbaarPerTijdslot(@PathParam("datum") LocalDate datum, @PathParam("tijdslot") int tijdslot){
         final int DEFAULT_AANTAL_TAFELS = 10;
-        List<Reservering> lijstMetReserveringenInTijdslot = rds.getReserveringenByTijdslot(tijdslot);
+        List<Reservering> lijstMetReserveringenInTijdslot = rds.getReserveringenByTijdslot(datum, tijdslot);
         int aantalReserveringenInTijdslot = lijstMetReserveringenInTijdslot.size();
         int aantalBeschikbareTafels = DEFAULT_AANTAL_TAFELS - aantalReserveringenInTijdslot;
 
