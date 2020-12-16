@@ -1,5 +1,6 @@
 package org.hoestschaamte.corona.resources;
 
+import org.assertj.core.util.diff.Delta;
 import org.hoestschaamte.corona.domain.Reservering;
 import org.hoestschaamte.corona.domain.Tafel;
 import org.hoestschaamte.corona.services.ReserveringDaoService;
@@ -7,6 +8,8 @@ import org.hoestschaamte.corona.services.TafelDaoService;
 
 import javax.ejb.Local;
 import javax.inject.Inject;
+import javax.management.Query;
+import javax.persistence.*;
 import javax.transaction.Transactional;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -15,6 +18,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 
 @Path("/tafels")

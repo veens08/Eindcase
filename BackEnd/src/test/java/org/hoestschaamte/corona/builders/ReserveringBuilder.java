@@ -1,6 +1,8 @@
-package org.hoestschaamte.corona.domain;
+package org.hoestschaamte.corona.builders;
 
-import java.time.LocalDate;
+import org.hoestschaamte.corona.domain.Persoon;
+import org.hoestschaamte.corona.domain.Reservering;
+import org.hoestschaamte.corona.domain.Tafel;
 
 public class ReserveringBuilder {
 

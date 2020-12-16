@@ -1,4 +1,8 @@
-package org.hoestschaamte.corona.domain;
+package org.hoestschaamte.corona.builders;
+
+import org.hoestschaamte.corona.domain.Bezoek;
+import org.hoestschaamte.corona.domain.Persoon;
+import org.hoestschaamte.corona.domain.Tafel;
 
 import java.time.LocalDate;
 import java.util.List;
