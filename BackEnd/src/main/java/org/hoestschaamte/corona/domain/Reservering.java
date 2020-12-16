@@ -2,7 +2,11 @@ package org.hoestschaamte.corona.domain;
 
 import org.hoestschaamte.corona.config.LocalDateAdapter;
 import org.hoestschaamte.corona.config.LocalDateAttributeConverter;
+import org.hoestschaamte.corona.resources.TafelResource;
+import org.hoestschaamte.corona.services.TafelDaoService;
+import org.hoestschaamte.corona.services.impl.TafelDaoServiceImpl;
 
+import javax.inject.Inject;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;

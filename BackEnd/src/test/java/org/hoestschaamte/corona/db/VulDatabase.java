@@ -1,9 +1,11 @@
 package org.hoestschaamte.corona.db;
 
-import org.hoestschaamte.corona.builder.TafelBuilder;
+import org.hoestschaamte.corona.builders.BezoekBuilder;
+import org.hoestschaamte.corona.builders.ReserveringBuilder;
+import org.hoestschaamte.corona.builders.TafelBuilder;
 import org.hoestschaamte.corona.domain.*;
+import org.junit.jupiter.api.Test;
 
-import javax.ejb.Local;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -270,4 +272,29 @@ public class VulDatabase {
 
         return tafels;
     }
+
+//    @Test
+//    void tafelToewijzen() {
+//        maakReserveringenVoorTestAan();
+//
+//        EntityManagerFactory emf = Persistence.createEntityManagerFactory ("test-corona-app-pu");
+//        EntityManager em = emf.createEntityManager();
+//        EntityTransaction tx = em.getTransaction();
+//
+//        tx.begin();
+//        TypedQuery typedQuery = em.createQuery("SELECT r FROM Reservering r WHERE r.datum = '2020-12-25' AND r.tijdSlot = 2", Reservering.class);
+//
+//        List<Reservering> reservering = typedQuery.getResultList();
+//        tx.commit();
+//        emf.getCache().evictAll();
+//        em.clear();
+////        System.out.println(count.get(0));
+//        int count = reservering.size();
+//        if (count < 10){
+//            int tafelnr = tafels.get(count);
+//        }
+//
+//        count.get(0);
+//
+//    }
 }

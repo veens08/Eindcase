@@ -1,4 +1,4 @@
-package org.hoestschaamte.corona.builder;
+package org.hoestschaamte.corona.builders;
 
 import org.hoestschaamte.corona.domain.Tafel;
 
