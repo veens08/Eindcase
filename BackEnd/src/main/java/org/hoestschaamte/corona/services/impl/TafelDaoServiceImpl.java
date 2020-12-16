@@ -15,11 +15,11 @@ public class TafelDaoServiceImpl extends DefaultDaoServiceImpl<Tafel> implements
     }
 
     @Override
-    public Tafel wijsBeschikbareTafelToe(int tijdslot){
+    public Tafel wijsBeschikbareTafelToe(String datum, int tijdslot){
         final String query = "SELECT ta FROM Tafel ta " +
                 "WHERE ta not in (" +
                 "SELECT r.tafel FROM Reservering r " +
-                "WHERE r.datum = '2020-12-25' AND r.tijdSlot = "+ tijdslot + ")";
+                "WHERE r.datum = " + datum + " AND r.tijdSlot = "+ tijdslot + ")";
 
         List<Tafel> tafellijst = haalLijstOpVanQuery(query);
         if (tafellijst.size() > 0){
