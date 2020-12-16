@@ -62,15 +62,13 @@ public class VulDatabase {
                 .createReservering(joshua,t2)
                 .metAantalPersonen(2)
                 .metDatum(LocalDate.of(2020, 12, 25))
-//                .metDatum("2020-12-25")
                 .metTijdslot(1)
                 .build();
 
         Reservering r3 = ReserveringBuilder
                 .createReservering(sjoerd, t1)
                 .metAantalPersonen(2)
-                .metDatum(LocalDate.of(2020, 12, 21))
-//                .metDatum("2020-12-21")
+                .metDatum   (LocalDate.of(2020, 12, 29))
                 .metTijdslot(2)
                 .build();
 

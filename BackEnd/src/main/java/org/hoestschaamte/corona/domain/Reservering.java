@@ -1,7 +1,7 @@
 package org.hoestschaamte.corona.domain;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import org.hoestschaamte.corona.config.LocalDateAdapter;
+import org.hoestschaamte.corona.config.LocalDateAttributeConverter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -16,10 +16,8 @@ public class Reservering {
     private int id;
 
     @XmlJavaTypeAdapter(LocalDateAdapter.class)
-    @JsonFormat(pattern = "dd-mm-yyyy", shape = JsonFormat.Shape.STRING)
-
+    @Convert(converter = LocalDateAttributeConverter.class)
     private LocalDate datum;
-//    private String datum;
     private int tijdSlot;
     private String code;
     private int aantalPersonen;
@@ -44,16 +42,11 @@ public class Reservering {
         return id;
     }
 
-
     public LocalDate getDatum(){
-//    public String getDatum() {
         return datum;
     }
     public void setDatum(LocalDate datum) {
-//    public void setDatum(String datum) {
         this.datum = datum;
-
-//        this.datum = datum.toString();
     }
 
     public int getTijdSlot() {

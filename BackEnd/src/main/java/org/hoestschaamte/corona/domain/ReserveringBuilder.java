@@ -15,7 +15,6 @@ public class ReserveringBuilder {
     }
 
     public ReserveringBuilder metDatum(LocalDate reserveringsDatum){
-//    public ReserveringBuilder metDatum(String reserveringsDatum) {
         this.reservering.setDatum(reserveringsDatum);
         return this;
     }
