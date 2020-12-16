@@ -1,8 +1,6 @@
 package org.hoestschaamte.corona.resources;
 
 import org.hoestschaamte.corona.domain.Bezoek;
-import org.hoestschaamte.corona.domain.Persoon;
-import org.hoestschaamte.corona.domain.Reservering;
 import org.hoestschaamte.corona.services.BezoekDaoService;
 
 import javax.inject.Inject;
@@ -11,7 +9,6 @@ import javax.validation.Valid;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.awt.*;
 import java.util.List;
 
 @Path ("/bezoeken")

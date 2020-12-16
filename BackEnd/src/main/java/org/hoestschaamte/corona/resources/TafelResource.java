@@ -14,6 +14,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Path("/tafels")
@@ -40,7 +41,8 @@ public class TafelResource {
         final int DEFAULT_AANTAL_TAFELS = 10;
 
         //Parse String to LocalDate
-        LocalDate datumParsed = LocalDate.parse(datum);
+        DateTimeFormatter dtf = DateTimeFormatter.ISO_DATE;
+        LocalDate datumParsed = LocalDate.parse(datum, dtf);
 
         List<Reservering> lijstMetReserveringenInTijdslot = rds.getReserveringenByTijdslot(datumParsed, tijdslot);
 
