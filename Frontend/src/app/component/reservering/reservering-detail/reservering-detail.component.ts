@@ -27,6 +27,8 @@ export class ReserveringDetailComponent implements OnInit, AfterViewInit {
   modal: IModal;
   gasten: Persoon[] = [];
   bezoek: Bezoek;
+  isKlachtSwitchVoorContactpersoonChecked: boolean;
+  isKlachtSwitchVoorExtraGastChecked: boolean;
 
   persoonRegistratieForm = new FormGroup({
     naam: new FormControl('', [
@@ -46,6 +48,8 @@ export class ReserveringDetailComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
+    this.isKlachtSwitchVoorContactpersoonChecked = true;
+    this.isKlachtSwitchVoorExtraGastChecked = true;
     this.reserveringService.getById(this.id).subscribe(r => {
       this.reservering = r;
       this.bezoek = {
@@ -100,5 +104,18 @@ export class ReserveringDetailComponent implements OnInit, AfterViewInit {
     this.bezoekService.save(this.bezoek).subscribe(b => {
       console.log(b);
     });
+  }
+
+  /**
+   * Deze methode wordt aangeroepen op het moment dat er een verandering plaatsvindt bij een selectbox
+   * Hij verandert de defaultwaardes van booleans in de klasse
+   * @param event JS event
+   */
+  onChangeKlachtSwitch(event): void {
+    if (event.target.id === 'klachtSwitchContactpersoon') {
+      this.isKlachtSwitchVoorContactpersoonChecked = event.target.checked;
+    } else {
+      this.isKlachtSwitchVoorExtraGastChecked = event.target.checked;
+    }
   }
 }

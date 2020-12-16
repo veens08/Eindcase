@@ -17,7 +17,7 @@
         <div class="switch">
           <label>
             Nee
-            <input type="checkbox" checked>
+            <input type="checkbox" id="klachtSwitchContactpersoon" checked (change)="onChangeKlachtSwitch($event)">
             <span class="lever"></span>
             Ja
           </label>
@@ -44,7 +44,7 @@
     </div>
     <div class="divider"></div>
     <div class="section">
-      <button (click)="AddBezoek()" class="btn waves-effect waves-light right" name="action">Opslaan
+      <button (click)="AddBezoek()" [ngClass]="{'disabled' : isKlachtSwitchVoorContactpersoonChecked}" class="btn waves-effect waves-light right" name="action">Opslaan
         <i class="material-icons right">send</i>
       </button>
     </div>
@@ -61,7 +61,7 @@
         <div class="switch">
           <label>
             Nee
-            <input type="checkbox" checked>
+            <input (change)="onChangeKlachtSwitch($event)" type="checkbox" id="klachtSwitchExtraGast" checked>
             <span class="lever"></span>
             Ja
           </label>
@@ -87,7 +87,7 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button (click)="addPersoon()" [disabled]="persoonRegistratieForm.invalid" class="btn waves-effect waves-light" type="submit" name="action" >Toevoegen
+        <button (click)="addPersoon()" [ngClass]="{'disabled' : isKlachtSwitchVoorExtraGastChecked}" [disabled]="persoonRegistratieForm.invalid" class="btn waves-effect waves-light" type="submit" name="action" >Toevoegen
           <i class="material-icons right">send</i>
         </button>
       </div>
