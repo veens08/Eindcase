@@ -1,5 +1,5 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {Reservering} from '../../../model/Reservering';
 import {ReserveringService} from '../../../service/reservering/reservering.service';
 import {Location} from '@angular/common';
@@ -21,7 +21,8 @@ export class ReserveringDetailComponent implements OnInit, AfterViewInit {
               private reserveringService: ReserveringService,
               private location: Location,
               private angular2MaterializeService: Angular2MaterializeV1Service,
-              private bezoekService: BezoekService) { }
+              private bezoekService: BezoekService,
+              private router: Router) { }
   id: string;
   reservering: Reservering;
   modal: IModal;
@@ -101,9 +102,14 @@ export class ReserveringDetailComponent implements OnInit, AfterViewInit {
   AddBezoek(): void {
     this.bezoek.gasten = this.gasten;
     this.bezoek.gasten.push(this.reservering.contactpersoon);
-    this.bezoekService.save(this.bezoek).subscribe(b => {
-      console.log(b);
-    });
+    const postObservable = this.bezoekService.save(this.bezoek);
+    const callback = (response) => {
+      console.log('Post of new bezoek done response = ' + response);
+      const observableOfDelete = this.reserveringService.delete(this.reservering);
+      observableOfDelete.subscribe();
+    };
+    postObservable.subscribe(callback);
+    this.router.navigate(['/reserveringen']);
   }
 
   /**

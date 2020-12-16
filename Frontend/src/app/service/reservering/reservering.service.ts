@@ -25,4 +25,9 @@ export class ReserveringService {
     const contentTypeHeader = new HttpHeaders({contentType: 'application/json'});
     return this.httpClient.post(this.API_URL + '/add', reservering, {headers: contentTypeHeader});
   }
+
+  delete(reservering: Reservering): Observable<any> {
+    const url = this.API_URL + '/' + reservering.id;
+    return this.httpClient.delete(url);
+  }
 }
