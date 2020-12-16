@@ -24,8 +24,7 @@ export class ReserveringListComponent implements OnInit, AfterViewInit {
       Validators.pattern('^[a-zA-Z.\'][a-zA-Z.\']*$'),
     ]),
     telNr: new FormControl('', [
-      Validators.required,
-      Validators.pattern('^((\\+|00(\\s|\\s?\\-\\s?)?)31(\\s|\\s?\\-\\s?)?(\\(0\\)[\\-\\s]?)?|0)[1-9]((\\s|\\s?\\-\\s?)?[0-9])((\\s|\\s?-\\s?)?[0-9])((\\s|\\s?-\\s?)?[0-9])\\s?[0-9]\\s?[0-9]\\s?[0-9]\\s?[0-9]\\s?[0-9]$')
+      Validators.required
     ]),
     email: new FormControl('', [
       Validators.required,
@@ -68,10 +67,11 @@ export class ReserveringListComponent implements OnInit, AfterViewInit {
     const newReservering: Reservering = {
       contactpersoon: newPersoon,
       aantalPersonen: this.reserveringForm.value.aantalPersonen,
-      tijdSlot: 2, // TODO: tijdslot moet bepaald worden aan de hand van de tijd die meegegeven wordt
-      // tijdSlot: this.reserveringForm.value.tijdSlot,
-      datum: this.reserveringForm.value.datum,
+      tijdSlot: this.reserveringForm.value.tijdSlot,
+      datum: this.reserveringForm.value.datum
     };
+
+    console.log(newReservering);
 
     this.reserveringService.save(newReservering).subscribe(r => {
       this.reserveringen.push(r);

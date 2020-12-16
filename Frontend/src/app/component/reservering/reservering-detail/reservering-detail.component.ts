@@ -7,6 +7,8 @@ import {Angular2MaterializeV1Service} from 'angular2-materialize-v1';
 import {IModal} from 'angular2-materialize-v1/lib/IInstance';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Persoon} from '../../../model/Persoon';
+import {BezoekService} from '../../../service/bezoek/bezoek.service';
+import {Bezoek} from '../../../model/Bezoek';
 
 @Component({
   selector: 'app-reservering-detail',
@@ -18,11 +20,13 @@ export class ReserveringDetailComponent implements OnInit, AfterViewInit {
   constructor(private route: ActivatedRoute,
               private reserveringService: ReserveringService,
               private location: Location,
-              private angular2MaterializeService: Angular2MaterializeV1Service) { }
+              private angular2MaterializeService: Angular2MaterializeV1Service,
+              private bezoekService: BezoekService) { }
   id: string;
   reservering: Reservering;
   modal: IModal;
-  personen: Persoon[] = [];
+  gasten: Persoon[] = [];
+  bezoek: Bezoek;
 
   persoonRegistratieForm = new FormGroup({
     naam: new FormControl('', [
@@ -31,9 +35,8 @@ export class ReserveringDetailComponent implements OnInit, AfterViewInit {
     ]),
     telNr: new FormControl('', [
       Validators.required,
-      // Validators.minLength(10),
-      // Validators.maxLength(10),
-      Validators.pattern('^((\\+|00(\\s|\\s?\\-\\s?)?)31(\\s|\\s?\\-\\s?)?(\\(0\\)[\\-\\s]?)?|0)[1-9]((\\s|\\s?\\-\\s?)?[0-9])((\\s|\\s?-\\s?)?[0-9])((\\s|\\s?-\\s?)?[0-9])\\s?[0-9]\\s?[0-9]\\s?[0-9]\\s?[0-9]\\s?[0-9]$')
+      Validators.minLength(10),
+      Validators.maxLength(10)
     ]),
     email: new FormControl('', [
       Validators.required,
@@ -45,6 +48,12 @@ export class ReserveringDetailComponent implements OnInit, AfterViewInit {
     this.id = this.route.snapshot.paramMap.get('id');
     this.reserveringService.getById(this.id).subscribe(r => {
       this.reservering = r;
+      this.bezoek = {
+        datum: r.datum,
+        tijdSlot: r.tijdSlot,
+        tafel: r.tafel,
+        gasten: []
+      };
     });
   }
 
@@ -62,16 +71,34 @@ export class ReserveringDetailComponent implements OnInit, AfterViewInit {
       telNr: this.persoonRegistratieForm.value.telNr,
       email: this.persoonRegistratieForm.value.email
     };
-    this.personen.push(newPersoon);
+    this.gasten.push(newPersoon);
     this.persoonRegistratieForm.reset();
     this.modal.close();
+    console.log(this.gasten);
   }
 
   isAantalPersonenBereikt(): boolean {
-    return this.personen.length + 1 >= this.reservering.aantalPersonen;
+    return this.gasten.length + 1 >= this.reservering.aantalPersonen;
   }
 
+  /**
+   * Deze methode verwijdert een persoon van de gasten lijst
+   * @param p van type Persoon
+   */
   removePersoon(p: Persoon): void {
-    // TODO: wil je deze afmaken Sjoerd? Ik ga slapen...
+    // bepaal index van de te verwijderen persoon
+    const indexPersoon = this.gasten.indexOf(p);
+    // "Als persoon is gevonden"
+    if (indexPersoon > -1){
+      this.gasten.splice(indexPersoon, 1);
+    }
+  }
+
+  AddBezoek(): void {
+    this.bezoek.gasten = this.gasten;
+    this.bezoek.gasten.push(this.reservering.contactpersoon);
+    this.bezoekService.save(this.bezoek).subscribe(b => {
+      console.log(b);
+    });
   }
 }

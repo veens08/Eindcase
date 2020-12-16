@@ -4,7 +4,7 @@
       <span style="font-size: 2.2rem;">Reservering</span>
       <p style="font-size: 1.5rem;">Code:  <span style="font-size: 1.3rem; color: grey">{{reservering.code}}</span></p>
       <p style="font-size: 1.5rem;">Aantal personen:  <span style="font-size: 1.3rem; color: grey">{{reservering.aantalPersonen}}</span></p>
-      <p style="font-size: 1.5rem;">Tafelnummer:  <span style="font-size: 1.3rem; color: grey"><!-- TODO: veranderd dit als backend zover is --></span></p>
+      <p style="font-size: 1.5rem;">Tafelnummer:  <span style="font-size: 1.3rem; color: grey">{{reservering.tafel.nummer}}</span></p>
     </div>
     <div class="divider" style="margin: 20px 0;"></div>
     <div class="section">
@@ -31,22 +31,25 @@
         <span style="font-size: 2.2rem; margin-right: 20px;">Extra gast(en)</span>
         <a [ngClass]="{'disabled' : isAantalPersonenBereikt()}" class="waves-effect waves-light btn-small modal-trigger" href="#persoonRegistratieModal">Toevoegen</a>
       </div>
-      <ul *ngIf="personen.length !== 0" class="collection">
-        <li *ngFor="let p of personen" class="collection-item avatar">
+      <ul *ngIf="gasten.length !== 0" class="collection">
+        <li *ngFor="let p of gasten" class="collection-item avatar">
           <i class="material-icons circle teal">person</i>
           <span class="title">{{p.naam}}</span>
           <p>{{p.telNr}} <br>
             {{p.email}}
           </p>
-          <a href="#!" (click)="removePersoon(p)" class="secondary-content"><i class="material-icons">delete</i></a>
+          <a (click)="removePersoon(p)" class="secondary-content"><i class="material-icons">delete</i></a>
         </li>
       </ul>
     </div>
+    <div class="divider"></div>
+    <div class="section">
+      <button (click)="AddBezoek()" class="btn waves-effect waves-light right" name="action">Opslaan
+        <i class="material-icons right">send</i>
+      </button>
+    </div>
   </div>
 </div>
-  <button class="btn waves-effect waves-light" type="submit" name="action">Opslaan
-    <i class="material-icons right">send</i>
-  </button>
 
 <!-- Modal Structure -->
 <div id="persoonRegistratieModal" class="modal">
