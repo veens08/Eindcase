@@ -15,7 +15,7 @@ public class Reservering {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @XmlJavaTypeAdapter(LocalDateAdapter.class)
+//    @XmlJavaTypeAdapter(LocalDateAdapter.class)
 //    @Convert(converter = LocalDateAttributeConverter.class)
     private String datum;
     private int tijdSlot;

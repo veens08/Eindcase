@@ -3,7 +3,7 @@ import {Tafel} from './Tafel';
 
 export interface Reservering {
   id?: number;
-  datum: Date;
+  datum: string;
   tijdSlot: number;
   code?: string;
   aantalPersonen: number;

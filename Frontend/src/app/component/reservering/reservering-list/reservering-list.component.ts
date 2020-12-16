@@ -4,7 +4,7 @@ import {ReserveringService} from '../../../service/reservering/reservering.servi
 import {Angular2MaterializeV1Service} from 'angular2-materialize-v1';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Persoon} from '../../../model/Persoon';
-import {IModal, ISelect} from 'angular2-materialize-v1/lib/IInstance';
+import {IModal, ISelect, IToast} from 'angular2-materialize-v1/lib/IInstance';
 
 @Component({
   selector: 'app-reservering',
@@ -16,6 +16,7 @@ export class ReserveringListComponent implements OnInit, AfterViewInit {
   searchCriterium = '';
   modal: IModal;
   select: ISelect;
+  toast: IToast;
 
   constructor(private reserveringService: ReserveringService, private angular2MaterializeService: Angular2MaterializeV1Service){}
   reserveringForm = new FormGroup({
@@ -79,5 +80,9 @@ export class ReserveringListComponent implements OnInit, AfterViewInit {
     });
 
     this.modal.close();
+    this.angular2MaterializeService.toast({
+      html: 'Reservering is opgeslagen',
+      classes: 'tosti'
+    });
   }
 }

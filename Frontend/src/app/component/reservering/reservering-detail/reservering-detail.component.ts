@@ -114,7 +114,7 @@ export class ReserveringDetailComponent implements OnInit, AfterViewInit {
   onChangeKlachtSwitch(event): void {
     if (event.target.id === 'klachtSwitchContactpersoon') {
       this.isKlachtSwitchVoorContactpersoonChecked = event.target.checked;
-    } else {
+    } else if (event.target.id === 'klachtSwitchExtraGast') {
       this.isKlachtSwitchVoorExtraGastChecked = event.target.checked;
     }
   }

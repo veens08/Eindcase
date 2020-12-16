@@ -3,7 +3,7 @@ import {Tafel} from './Tafel';
 
 export interface Bezoek {
   id?: number;
-  datum: Date;
+  datum: string;
   tijdSlot: number;
   gasten: Persoon[];
   tafel: Tafel;
