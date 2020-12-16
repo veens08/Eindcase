@@ -30,4 +30,5 @@ public class ReserveringDaoServiceImpl extends DefaultDaoServiceImpl<Reservering
 
         return haalLijstOpVanQuery(stringQuery);
     }
+
 }

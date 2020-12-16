@@ -55,5 +55,12 @@ public class ReserveringResource {
         return rds.getById(id);
     }
 
+    @DELETE
+    @Path("/remove/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public void deleteReserveringByID(@PathParam("id") int id){
+        rds.deleteById(id);
+    }
+
 }
 

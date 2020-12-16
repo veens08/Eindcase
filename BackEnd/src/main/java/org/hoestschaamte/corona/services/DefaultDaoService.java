@@ -23,4 +23,11 @@ public interface DefaultDaoService<T> {
      * @return
      */
     T getById(int id);
+
+    /**
+     * Deze methode verwijdert een object uit de database met een specifiek id
+     * @param id
+     */
+    void deleteById(int id);
+
 }

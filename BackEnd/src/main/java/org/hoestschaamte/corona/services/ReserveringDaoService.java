@@ -14,7 +14,6 @@ public interface ReserveringDaoService extends DefaultDaoService<Reservering> {
      */
     Reservering getByReserveringsCode(String reserveringsCode);
 
-
     List<Reservering> getReserveringenByTijdslot(LocalDate datum, int tijdslot);
 
 }

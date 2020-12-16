@@ -1,5 +1,6 @@
 package org.hoestschaamte.corona.services.impl;
 
+import org.hoestschaamte.corona.domain.Reservering;
 import org.hoestschaamte.corona.services.DefaultDaoService;
 
 import javax.persistence.EntityManager;
@@ -36,6 +37,19 @@ public class DefaultDaoServiceImpl<T> implements DefaultDaoService<T> {
     @Override
     public T getById(int id) {
         return em.find(typeParameterClass, id);
+    }
+
+
+    @Override
+    public void deleteById(int id) {
+        final T object = getById(id);
+
+        if (object != null){
+            em.remove(object);
+            System.out.println("Rij succesvol verwijderd.");
+        } else {
+            System.out.println("Verwijderen van rij mislukt. Mogelijk bestaat de rij niet.");
+        }
     }
 
     /**
