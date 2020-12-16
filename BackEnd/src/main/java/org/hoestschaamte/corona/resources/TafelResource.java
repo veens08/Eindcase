@@ -44,7 +44,7 @@ public class TafelResource {
         DateTimeFormatter dtf = DateTimeFormatter.ISO_DATE;
         LocalDate datumParsed = LocalDate.parse(datum, dtf);
 
-        List<Reservering> lijstMetReserveringenInTijdslot = rds.getReserveringenByTijdslot(datumParsed, tijdslot);
+        List<Reservering> lijstMetReserveringenInTijdslot = rds.getReserveringenByTijdslot(datum, tijdslot);
 
         int aantalReserveringenInTijdslot = lijstMetReserveringenInTijdslot.size();
 

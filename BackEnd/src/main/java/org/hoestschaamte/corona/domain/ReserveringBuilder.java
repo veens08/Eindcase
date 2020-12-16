@@ -14,7 +14,7 @@ public class ReserveringBuilder {
         return new ReserveringBuilder(contactpersoon, tafel);
     }
 
-    public ReserveringBuilder metDatum(LocalDate reserveringsDatum){
+    public ReserveringBuilder metDatum(String reserveringsDatum){
         this.reservering.setDatum(reserveringsDatum);
         return this;
     }

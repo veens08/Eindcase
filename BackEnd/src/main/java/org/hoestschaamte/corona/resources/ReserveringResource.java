@@ -56,7 +56,7 @@ public class ReserveringResource {
     }
 
     @DELETE
-    @Path("/remove/{id}")
+    @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public void deleteReserveringByID(@PathParam("id") int id){
         rds.deleteById(id);

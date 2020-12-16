@@ -16,8 +16,8 @@ public class Reservering {
     private int id;
 
     @XmlJavaTypeAdapter(LocalDateAdapter.class)
-    @Convert(converter = LocalDateAttributeConverter.class)
-    private LocalDate datum;
+//    @Convert(converter = LocalDateAttributeConverter.class)
+    private String datum;
     private int tijdSlot;
     private String code;
     private int aantalPersonen;
@@ -42,10 +42,10 @@ public class Reservering {
         return id;
     }
 
-    public LocalDate getDatum(){
+    public String getDatum(){
         return datum;
     }
-    public void setDatum(LocalDate datum) {
+    public void setDatum(String datum) {
         this.datum = datum;
     }
 

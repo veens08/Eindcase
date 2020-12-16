@@ -18,25 +18,7 @@ public class VulDatabase {
         EntityManager em = emf.createEntityManager();
         EntityTransaction tx = em.getTransaction();
 
-        Tafel t1 = TafelBuilder
-                .createTafel(10)
-                .metAantalPersonen(4)
-                .metCluster(1)
-                .build();
-
-        Tafel t2 = TafelBuilder
-                .createTafel(11)
-                .metAantalPersonen(4)
-                .metCluster(2)
-                .build();
-
-        Tafel t3 = TafelBuilder
-                .createTafel(12)
-                .metAantalPersonen(3)
-                .metCluster(1)
-                .build();
-
-        List<Tafel> tafels = Arrays.asList(t1, t2, t3);
+        List<Tafel> tafels = maakTienTafelsAan();
 
         tx.begin();
         for (Tafel t : tafels) {
@@ -51,24 +33,26 @@ public class VulDatabase {
         Persoon sjoerd = slaPersoonOpEnHaalUitDatabase("Sjoerd", "06-87654321", "sjoerd@gmail.com");
 
         Reservering r1 = ReserveringBuilder
-                .createReservering(evan, t1)
+                .createReservering(evan, tafels.get(0))
                 .metAantalPersonen(3)
-                .metDatum(LocalDate.of(2020, 12, 25))
-//                .metDatum("2020-12-25")
+//                .metDatum(LocalDate.of(2020, 12, 25))
+                .metDatum("2020-12-25")
                 .metTijdslot(1)
                 .build();
 
         Reservering r2 = ReserveringBuilder
-                .createReservering(joshua,t2)
+                .createReservering(joshua,tafels.get(1))
                 .metAantalPersonen(2)
-                .metDatum(LocalDate.of(2020, 12, 25))
+//                .metDatum(LocalDate.of(2020, 12, 25))
+                .metDatum("2020-12-25")
                 .metTijdslot(1)
                 .build();
 
         Reservering r3 = ReserveringBuilder
-                .createReservering(sjoerd, t1)
+                .createReservering(sjoerd, tafels.get(2))
                 .metAantalPersonen(2)
-                .metDatum   (LocalDate.of(2020, 12, 29))
+//                .metDatum   (LocalDate.of(2020, 12, 29))
+                .metDatum("2020-12-25")
                 .metTijdslot(2)
                 .build();
 
@@ -219,5 +203,71 @@ public class VulDatabase {
         em.clear();
         emf.getCache().evictAll();
         return persoon;
+    }
+
+    List<Tafel> maakTienTafelsAan(){
+        Tafel t1 = TafelBuilder
+                .createTafel(10)
+                .metAantalPersonen(4)
+                .metCluster(1)
+                .build();
+
+        Tafel t2 = TafelBuilder
+                .createTafel(11)
+                .metAantalPersonen(4)
+                .metCluster(2)
+                .build();
+
+        Tafel t3 = TafelBuilder
+                .createTafel(12)
+                .metAantalPersonen(3)
+                .metCluster(1)
+                .build();
+
+        Tafel t4 = TafelBuilder
+                .createTafel(13)
+                .metAantalPersonen(4)
+                .metCluster(1)
+                .build();
+
+        Tafel t5 = TafelBuilder
+                .createTafel(14)
+                .metAantalPersonen(4)
+                .metCluster(1)
+                .build();
+
+        Tafel t6 = TafelBuilder
+                .createTafel(15)
+                .metAantalPersonen(4)
+                .metCluster(1)
+                .build();
+
+        Tafel t7 = TafelBuilder
+                .createTafel(16)
+                .metAantalPersonen(4)
+                .metCluster(1)
+                .build();
+
+        Tafel t8 = TafelBuilder
+                .createTafel(17)
+                .metAantalPersonen(4)
+                .metCluster(1)
+                .build();
+
+        Tafel t9 = TafelBuilder
+                .createTafel(18)
+                .metAantalPersonen(4)
+                .metCluster(1)
+                .build();
+
+        Tafel t10 = TafelBuilder
+                .createTafel(19)
+                .metAantalPersonen(4)
+                .metCluster(1)
+                .build();
+
+        List<Tafel> tafels = Arrays.asList(t1, t2, t3, t4,t5, t6, t7, t8, t9, t10);
+
+        return tafels;
     }
 }
