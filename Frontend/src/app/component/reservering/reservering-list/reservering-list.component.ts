@@ -25,11 +25,14 @@ export class ReserveringListComponent implements OnInit, AfterViewInit {
       Validators.pattern('^[a-zA-Z.\'][a-zA-Z.\']*$'),
     ]),
     telNr: new FormControl('', [
-      Validators.required
+      Validators.required,
+      Validators.minLength(10),
+      Validators.maxLength(10),
+      Validators.pattern('[0-9]+')
     ]),
     email: new FormControl('', [
       Validators.required,
-      Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')
+      Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$')
     ]),
     aantalPersonen: new FormControl('', [
       Validators.max(4),
