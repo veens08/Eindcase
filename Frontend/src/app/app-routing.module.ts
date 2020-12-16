@@ -6,14 +6,16 @@ import {BezoekDetailComponent} from './component/bezoek/bezoeker-detail/bezoek-d
 import {BesmettingReportComponent} from './component/besmetting-report/besmetting-report.component';
 import {ReserveringDetailComponent} from './component/reservering/reservering-detail/reservering-detail.component';
 import {BezoekListComponent} from './component/bezoek/bezoek-list/bezoek-list.component';
+import {StartpaginaComponent} from './component/startpagina/startpagina.component';
 
 const routes: Routes = [
+  {path: 'startpagina', component: StartpaginaComponent},
   {path: 'reserveringen', component: ReserveringListComponent},
   {path: 'reservering/:id', component: ReserveringDetailComponent},
   {path: 'bezoeken', component: BezoekListComponent},
   {path: 'besmetting-report', component: BesmettingReportComponent},
   {path: 'not-found', component: PageNotFoundComponent},
-  {path: '', redirectTo: '/reserveringen', pathMatch: 'full'},
+  {path: '', redirectTo: '/startpagina', pathMatch: 'full'},
   {path: '**', redirectTo: '/not-found'}
 ];
 
