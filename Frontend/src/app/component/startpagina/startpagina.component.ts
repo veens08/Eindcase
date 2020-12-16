@@ -13,6 +13,7 @@ import {BezoekService} from '../../service/bezoek/bezoek.service';
 export class StartpaginaComponent implements OnInit {
   reserveringen: Reservering[];
   bezoeken: Bezoek[] = [];
+  huidigeDatum = Date.now();
 
   constructor(private reserveringService: ReserveringService, private bezoekService: BezoekService){}
 
