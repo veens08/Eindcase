@@ -11,6 +11,7 @@
         <class>org.hoestschaamte.corona.domain.Reservering</class>
         <class>org.hoestschaamte.corona.domain.Persoon</class>
         <class>org.hoestschaamte.corona.domain.Tafel</class>
+        <class>org.hoestschaamte.corona.config.LocalDateAttributeConverter</class>
         <properties>
             <property name="eclipselink.weaving" value="false"/>
 <!--            Alleen gebruiken wanneer je je entiteit aanpast-->
