@@ -19,7 +19,7 @@ public class BezoekBuilder {
         return new BezoekBuilder(tafel, gasten);
     }
 
-    public BezoekBuilder metDatum(LocalDate datum) {
+    public BezoekBuilder metDatum(String datum) {
         this.bezoek.setDatum(datum);
         return this;
     }

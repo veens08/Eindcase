@@ -17,7 +17,7 @@ public class Bezoek {
 
     @XmlJavaTypeAdapter(LocalDateAdapter.class)
     @JsonFormat(pattern = "dd-mm-yyyy", shape = JsonFormat.Shape.STRING)
-    private LocalDate datum;
+    private String datum;
     private int tijdSlot;
 
     @OneToMany(cascade = CascadeType.PERSIST)
@@ -42,11 +42,11 @@ public class Bezoek {
         return id;
     }
 
-    public LocalDate getDatum() {
+    public String getDatum() {
         return datum;
     }
 
-    public void setDatum(LocalDate datum) {
+    public void setDatum(String datum) {
         this.datum = datum;
     }
 
