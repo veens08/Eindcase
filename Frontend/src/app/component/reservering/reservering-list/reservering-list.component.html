@@ -28,7 +28,7 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let r of reserveringen|filter:searchCriterium">
+  <tr *ngFor="let r of reserveringen|filter:searchCriterium" *ngIf="r.">
     <td>{{r.code}}</td>
     <td>{{r.datum}}</td>
     <td>{{r.aantalPersonen}}</td>

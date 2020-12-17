@@ -1,17 +1,29 @@
-<input type="text">
-<button>Doorgaan</button>
+<div class="row">
+  <div class="col s12 xl4">
+    <h2>Besmettingsrapportage</h2>
+    <p>Op basis van de volgende gegevens is een besmettingsrapport gemaakt:</p>
+    <p style="font-size: 1.5rem;">Persoon:  <span style="font-size: 1.3rem; color: grey">{{besmettePersoon.naam}}</span></p>
+    <p style="font-size: 1.5rem;">Datum:  <span style="font-size: 1.3rem; color: grey">{{datum}}</span></p>
+    <p style="font-size: 1.5rem;">Tijdslot:  <span style="font-size: 1.3rem; color: grey">{{tijdslot}}</span></p>
 
-<table>
+  </div>
+</div>
+
+<table class="responsive-table highlight">
   <thead>
   <tr>
-    <th>ReserveringsID</th>
+    <th>#</th>
     <th>Naam</th>
-    <th>Datum</th>
-    <th>Email</th>
-    <th>Telefoonnummer</th>
-    <th>Tafelnummer</th>
+    <th>Tafelnummer:</th>
+    <th>Tafelcluster:</th>
   </tr>
   </thead>
+  <tbody>
+  <tr *ngFor="let bri of besmettingsRapportItems, let i = index" [attr.data-index]="i">
+    <td>{{i}}.</td>
+    <td>{{bri.naamGast}}</td>
+    <td>{{bri.tafelnummer}}</td>
+    <td>{{bri.tafelcluster}}</td>
+  </tr>
+  </tbody>
 </table>
-
-<button>Rapporteren</button>

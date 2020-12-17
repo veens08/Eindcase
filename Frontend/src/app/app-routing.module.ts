@@ -12,7 +12,7 @@ const routes: Routes = [
   {path: 'reserveringen', component: ReserveringListComponent},
   {path: 'reservering/:id', component: ReserveringDetailComponent},
   {path: 'bezoeken', component: BezoekListComponent},
-  {path: 'besmetting-report/:', component: BesmettingReportComponent},
+  {path: 'besmetting-report/search', component: BesmettingReportComponent},
   {path: 'not-found', component: PageNotFoundComponent},
   {path: '', redirectTo: '/startpagina', pathMatch: 'full'},
   {path: '**', redirectTo: '/not-found'}

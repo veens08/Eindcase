@@ -33,9 +33,14 @@ export class BezoekListComponent implements OnInit, AfterViewInit {
     this.modal = (this.angular2MaterializeService.initModal('#besmettingModal') as IModal);
   }
 
-
   besmettingDoorvoeren(p: Persoon): void {
-    this.router.navigate(['/besmetting-report']);
+    this.router.navigate(['/besmetting-report/search'], {
+      queryParams: {
+        persoon: p.id,
+        datum: this.potentieleBesmettingBezoek.datum,
+        tijdslot: this.potentieleBesmettingBezoek.tijdSlot,
+        tafelcluster: this.potentieleBesmettingBezoek.tafel.cluster }
+      });
   }
 
   initializeBezoek(b: Bezoek): void {
