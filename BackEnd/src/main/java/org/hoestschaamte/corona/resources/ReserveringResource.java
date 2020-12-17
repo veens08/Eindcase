@@ -37,7 +37,7 @@ public class ReserveringResource {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response addReservering(@Valid Reservering reservering) {
         reservering.setCode(Reservering.createReserveringsCode());
-        Tafel toegewezenTafel = tds.wijsBeschikbareTafelToe(reservering.getTijdSlot());
+        Tafel toegewezenTafel = tds.wijsBeschikbareTafelToe(reservering.getDatum(), reservering.getTijdSlot());
         reservering.setTafel(toegewezenTafel);
         rds.save(reservering);
         System.out.println(reservering);

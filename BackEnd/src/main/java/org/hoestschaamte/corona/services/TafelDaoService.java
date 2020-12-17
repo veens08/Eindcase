@@ -5,5 +5,5 @@ import org.hoestschaamte.corona.domain.Tafel;
 import java.util.List;
 
 public interface TafelDaoService extends DefaultDaoService<Tafel> {
-    public Tafel wijsBeschikbareTafelToe(int tijdslot);
+    public Tafel wijsBeschikbareTafelToe(String datum, int tijdslot);
 }

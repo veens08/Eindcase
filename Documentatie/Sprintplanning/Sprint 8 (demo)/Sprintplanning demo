@@ -1,0 +1,19 @@
+Sprint demo (Donderdag 15-12-2020):
+Rolverdeling:
+    • Teamlid (Evan)
+    • Teamlid (Sjoerd)
+    • Teamlid (Joshua)
+
+Todo:
+    • Demo (team)
+    • Puntjes op de i (team)
+    • Door alle code heenlopen en opschonen (team)
+
+Done:
+    • Dashboard implementeren
+    • Validaties afronden (datum/gezondheid/ email)
+        • Rode omlijning om invoervelden indien incorrect;
+        • Niet door kunnen gaan tot alle velden voldoen aan validaties;
+    • Als reservering toegevoegd is, melding met: "Reservering toevoegen voltooid!"
+    • Bezoekerslijst bij besmetting
+    • Voorbereiden demo met PowerPoint presentatie;
