@@ -15,8 +15,6 @@ public class Bezoek {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @XmlJavaTypeAdapter(LocalDateAdapter.class)
-    @JsonFormat(pattern = "dd-mm-yyyy", shape = JsonFormat.Shape.STRING)
     private String datum;
     private int tijdSlot;
 

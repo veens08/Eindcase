@@ -16,6 +16,14 @@ public class ReserveringDaoServiceImpl extends DefaultDaoServiceImpl<Reservering
     }
 
     @Override
+    public List<Reservering> getAllReserveringenDieOmgeboektZijn() {
+        final String stringQuery = "SELECT r FROM Reservering AS r " +
+                "WHERE r.isOmgeboekt = FALSE";
+
+        return haalLijstOpVanQuery(stringQuery);
+    }
+
+    @Override
     public Reservering getByReserveringsCode(String reserveringsCode) {
         final String stringQuery = "SELECT r FROM Reservering AS r " +
                 "WHERE r.code = '" + reserveringsCode + "'";

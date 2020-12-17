@@ -26,6 +26,7 @@ public class Reservering {
     private String code;
     private int aantalPersonen;
     private static int teller = 10000;
+    private boolean isOmgeboekt;
 
     @OneToOne
     private Tafel tafel;
@@ -85,19 +86,27 @@ public class Reservering {
         this.contactpersoon = contactpersoon;
     }
 
-    public static String createReserveringsCode() {
-        String format = String.format("%05d", teller++);
-        String hs = "HS-";
-
-        return hs + format;
-    }
-
     public Tafel getTafel() {
         return tafel;
     }
 
     public void setTafel(Tafel tafel) {
         this.tafel = tafel;
+    }
+
+    public boolean isOmgeboekt() {
+        return isOmgeboekt;
+    }
+
+    public void setOmgeboekt(boolean omgeboekt) {
+        isOmgeboekt = omgeboekt;
+    }
+
+    public static String createReserveringsCode() {
+        String format = String.format("%05d", teller++);
+        String hs = "HS-";
+
+        return hs + format;
     }
 
     @Override

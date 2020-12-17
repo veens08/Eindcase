@@ -28,6 +28,11 @@ public class DefaultDaoServiceImpl<T> implements DefaultDaoService<T> {
     }
 
     @Override
+    public T update(T object) {
+        return em.merge(object);
+    }
+
+    @Override
     public List<T> getAll() {
         final String query = "SELECT t FROM " + typeParameterClass.getSimpleName() + " t";
         final TypedQuery<T> typedQuery = em.createQuery(query, typeParameterClass);

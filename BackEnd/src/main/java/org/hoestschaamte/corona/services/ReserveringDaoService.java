@@ -16,4 +16,11 @@ public interface ReserveringDaoService extends DefaultDaoService<Reservering> {
 
     List<Reservering> getReserveringenByTijdslot(String datum, int tijdslot);
 
+    /**
+     * Pardon my English..
+     * Deze methode haalt alle reserveringen op die al omgeboekt zijn naar een bezoek
+     * @return
+     */
+    List<Reservering> getAllReserveringenDieOmgeboektZijn();
+
 }

@@ -12,6 +12,12 @@ public interface DefaultDaoService<T> {
     void save(T object);
 
     /**
+     * Deze methode update het object in de database en geeft het vervolgens weer terug
+     * @param object
+     */
+    T update(T object);
+
+    /**
      * Deze methode haalt alle objecten op van de database
      * @return
      */

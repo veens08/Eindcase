@@ -28,8 +28,8 @@ public class ReserveringResource {
     @GET
     @Path("/")
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Reservering> getReseveringen() {
-        return rds.getAll();
+    public List<Reservering> getAllReserveringenDieOmgeboektZijn() {
+        return rds.getAllReserveringenDieOmgeboektZijn();
     }
 
     @POST

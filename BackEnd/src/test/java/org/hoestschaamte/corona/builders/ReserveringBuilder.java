@@ -31,6 +31,11 @@ public class ReserveringBuilder {
         return this;
     }
 
+    public ReserveringBuilder isOmgeboekt(boolean isOmgeboekt) {
+        this.reservering.setOmgeboekt(isOmgeboekt);
+        return this;
+    }
+
     public Reservering build() {
         return this.reservering;
     }
