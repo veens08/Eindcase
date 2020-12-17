@@ -37,10 +37,12 @@ public class BezoekResource {
     @POST
     @Path ("/add")
     @Consumes (MediaType.APPLICATION_JSON)
-    public Response addBezoeken(@Valid Bezoek bezoek, Reservering reservering){
+    public Response addBezoeken(@Valid Bezoek bezoek){
         // Geef aan dat de reservering is omgeboekt
-        reservering.setOmgeboekt(true);
-        rds.update(reservering);
+        Reservering dbReservering = rds.getReserveringenByDatumTijdslotAndTafelNummer(bezoek.getDatum(), bezoek.getTijdSlot(), bezoek.getTafel().getNummer());
+        System.out.println(dbReservering);
+        dbReservering.setOmgeboekt(true);
+        rds.update(dbReservering);
         // En sla dan het bezoek op
         bds.save(bezoek);
         System.out.println (bezoek);

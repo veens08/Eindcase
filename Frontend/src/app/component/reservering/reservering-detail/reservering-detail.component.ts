@@ -103,13 +103,7 @@ export class ReserveringDetailComponent implements OnInit, AfterViewInit {
   AddBezoek(): void {
     this.bezoek.gasten = this.gasten;
     this.bezoek.gasten.push(this.reservering.contactpersoon);
-    const postObservable = this.bezoekService.save(this.bezoek);
-    const callback = (response) => {
-      console.log('Post of new bezoek done response = ' + response);
-      const observableOfDelete = this.reserveringService.delete(this.reservering);
-      observableOfDelete.subscribe();
-    };
-    postObservable.subscribe(callback);
+    this.bezoekService.save(this.bezoek).subscribe();
     this.router.navigate(['/reserveringen']);
   }
 

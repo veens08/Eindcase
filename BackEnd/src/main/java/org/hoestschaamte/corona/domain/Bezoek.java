@@ -1,7 +1,5 @@
 package org.hoestschaamte.corona.domain;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import org.hoestschaamte.corona.config.LocalDateAdapter;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
