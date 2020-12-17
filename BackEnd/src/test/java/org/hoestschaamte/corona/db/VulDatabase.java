@@ -15,20 +15,11 @@ import java.util.List;
 public class VulDatabase {
 
     public void maakReserveringenVoorTestAan() {
-
         EntityManagerFactory emf = Persistence.createEntityManagerFactory ("test-corona-app-pu");
         EntityManager em = emf.createEntityManager();
         EntityTransaction tx = em.getTransaction();
 
         List<Tafel> tafels = maakTienTafelsAan();
-
-        tx.begin();
-        for (Tafel t : tafels) {
-            em.persist(t);
-        }
-        tx.commit();
-        em.clear();
-        emf.getCache().evictAll();
 
         Persoon evan = slaPersoonOpEnHaalUitDatabase("Evan", "06-12345678", "evan@gmail.com");
         Persoon joshua = slaPersoonOpEnHaalUitDatabase("Joshua", "06-11223344", "joshua@gmail.com");
@@ -62,7 +53,7 @@ public class VulDatabase {
 
         tx.begin();
         for (Reservering r : reserveringen) {
-            em.persist(r);
+            em.merge(r);
         }
         tx.commit();
         em.clear();
@@ -109,37 +100,12 @@ public class VulDatabase {
         gastenBezoek1.add(evan);
         gastenBezoek1.add(joshua);
 
-        Tafel t1 = TafelBuilder
-                .createTafel(4)
-                .metAantalPersonen(4)
-                .metCluster(3)
-                .build();
-
-        Tafel t2 = TafelBuilder
-                .createTafel(5)
-                .metAantalPersonen(4)
-                .metCluster(3)
-                .build();
-
-        Tafel t3 = TafelBuilder
-                .createTafel(6)
-                .metAantalPersonen(3)
-                .metCluster(4)
-                .build();
-
-        List<Tafel> tafels = Arrays.asList(t1, t2, t3);
-
-        tx.begin();
-        for (Tafel t : tafels) {
-            em.persist(t);
-        }
-        tx.commit();
-        em.clear();
-        emf.getCache().evictAll();
+        TypedQuery<Tafel> tq = em.createQuery("SELECT t FROM Tafel t", Tafel.class);
+        List<Tafel> tafels = tq.getResultList();
 
         Bezoek b1 = BezoekBuilder
-                .createBezoek(t1, gastenBezoek1)
-                .metDatum(LocalDate.of(2020,12,15))
+                .createBezoek(tafels.get(0), gastenBezoek1)
+                .metDatum("2020-12-15")
                 .metTijdslot(1)
                 .build();
 
@@ -148,8 +114,8 @@ public class VulDatabase {
         gastenBezoek2.add(evan);
 
         Bezoek b2 = BezoekBuilder
-                .createBezoek(t2, gastenBezoek2)
-                .metDatum(LocalDate.of(2020,12,14))
+                .createBezoek(tafels.get(2), gastenBezoek2)
+                .metDatum("2020-12-14")
                 .metTijdslot(2)
                 .build();
         tx.begin();
@@ -157,7 +123,7 @@ public class VulDatabase {
         bezoeken.addAll(Arrays.asList(b1, b2));
 
         for (Bezoek b : bezoeken) {
-            em.persist(b);
+            em.merge(b);
         }
         tx.commit();
         em.clear();
@@ -208,6 +174,10 @@ public class VulDatabase {
     }
 
     List<Tafel> maakTienTafelsAan(){
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory ("test-corona-app-pu");
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction tx = em.getTransaction();
+
         Tafel t1 = TafelBuilder
                 .createTafel(10)
                 .metAantalPersonen(4)
@@ -270,31 +240,15 @@ public class VulDatabase {
 
         List<Tafel> tafels = Arrays.asList(t1, t2, t3, t4,t5, t6, t7, t8, t9, t10);
 
-        return tafels;
+        tx.begin();
+        for (Tafel t : tafels) {
+            em.persist(t);
+        }
+        tx.commit();
+        em.clear();
+        emf.getCache().evictAll();
+
+        return em.createQuery("SELECT t FROM Tafel t", Tafel.class).getResultList();
     }
 
-//    @Test
-//    void tafelToewijzen() {
-//        maakReserveringenVoorTestAan();
-//
-//        EntityManagerFactory emf = Persistence.createEntityManagerFactory ("test-corona-app-pu");
-//        EntityManager em = emf.createEntityManager();
-//        EntityTransaction tx = em.getTransaction();
-//
-//        tx.begin();
-//        TypedQuery typedQuery = em.createQuery("SELECT r FROM Reservering r WHERE r.datum = '2020-12-25' AND r.tijdSlot = 2", Reservering.class);
-//
-//        List<Reservering> reservering = typedQuery.getResultList();
-//        tx.commit();
-//        emf.getCache().evictAll();
-//        em.clear();
-////        System.out.println(count.get(0));
-//        int count = reservering.size();
-//        if (count < 10){
-//            int tafelnr = tafels.get(count);
-//        }
-//
-//        count.get(0);
-//
-//    }
 }
